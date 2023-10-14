@@ -3,18 +3,22 @@ module.exports = {
     browser: true,
     es2021: true
   },
-  plugins: ['lodash'],
-  extends: [
-    'eslint:recommended',
-    'standard',
-    'plugin:lodash/recommended'
-  ],
+  plugins: ['lodash', 'jest'],
+  extends: ['eslint:recommended', 'standard', 'plugin:lodash/recommended'],
   rules: {
     // 允許只引入部分包
     'lodash/import-scope': [2, 'member'],
     'lodash/chaining': [2, 'always']
   },
   overrides: [
+    {
+      files: ['**/__tests__/**/*.[jt]s', '**/?(*.)+(spec|test).[jt]s'],
+      extends: ['plugin:jest/all'],
+      env: {
+        jest: true,
+        node: true
+      }
+    },
     {
       files: ['*.ts', '*.tsx'],
       parser: '@typescript-eslint/parser',
@@ -25,11 +29,7 @@ module.exports = {
         ecmaVersion: 'latest',
         createDefaultProgram: true
       },
-      plugins: [
-        '@typescript-eslint',
-        'lodash',
-        'deprecation'
-      ],
+      plugins: ['@typescript-eslint', 'lodash', 'deprecation'],
       extends: [
         'eslint:recommended',
         'plugin:@typescript-eslint/recommended',

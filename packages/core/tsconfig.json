@@ -4,7 +4,7 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "outDir": "dist",
-    "types": [],
+    "types": ["@types/jest"],
     "lib": ["ES6", "DOM"]
   }
 }

@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "rollup --config rollup.config.ts --configPlugin @rollup/plugin-typescript && rimraf dist/types"
+    "build": "rollup --config rollup.config.ts --configPlugin @rollup/plugin-typescript && rimraf dist/types",
+    "test": "jest"
   },
   "keywords": [
     "dependency",
@@ -14,6 +15,11 @@
   "license": "MIT",
   "dependencies": {
     "comment-json": "^4.2.3",
+    "lodash-es": "^4.17.21",
+    "ts-custom-error": "^3.3.1",
     "yaml": "^2.3.2"
+  },
+  "devDependencies": {
+    "@types/lodash-es": "^4.17.9"
   }
 }
