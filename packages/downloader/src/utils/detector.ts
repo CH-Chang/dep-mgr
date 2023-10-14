@@ -9,18 +9,16 @@ import fs from 'fs'
 import path from 'path'
 
 export const detectDepMgr = (): DepMgr => {
-  const mgrs = [DepMgr.Npm, DepMgr.Yarn, DepMgr.Yarn]
+  const mgrs = [DepMgr.Npm, DepMgr.Yarn, DepMgr.Pnpm]
 
   for (const mgr of mgrs) {
     const lockFiles = DepMgrLockFileMap[mgr]
     for (const lockFile of lockFiles) {
-      const lockFileNames = LockFileNameMap[lockFile]
-      for (const lockFileName of lockFileNames) {
-        const lockFilePath = path.resolve(process.cwd(), lockFileName)
-        const lockFileExists = fs.existsSync(lockFilePath)
-        if (lockFileExists) {
-          return mgr
-        }
+      const lockFileName = LockFileNameMap[lockFile]
+      const lockFilePath = path.resolve(process.cwd(), lockFileName)
+      const lockFileExists = fs.existsSync(lockFilePath)
+      if (lockFileExists) {
+        return mgr
       }
     }
   }
@@ -31,13 +29,11 @@ export const detectDepMgr = (): DepMgr => {
 export const detectLockFile = (depMgr: DepMgr): LockFile => {
   const lockFiles = DepMgrLockFileMap[depMgr]
   for (const lockFile of lockFiles) {
-    const lockFileNames = LockFileNameMap[lockFile]
-    for (const lockFileName of lockFileNames) {
-      const lockFilePath = path.resolve(process.cwd(), lockFileName)
-      const lockFileExists = fs.existsSync(lockFilePath)
-      if (lockFileExists) {
-        return lockFile
-      }
+    const lockFileName = LockFileNameMap[lockFile]
+    const lockFilePath = path.resolve(process.cwd(), lockFileName)
+    const lockFileExists = fs.existsSync(lockFilePath)
+    if (lockFileExists) {
+      return lockFile
     }
   }
 
