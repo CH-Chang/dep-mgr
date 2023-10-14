@@ -11,7 +11,19 @@ export enum LockFile {
   PnpmYamlLockFile
 }
 
-export enum Status {}
+export enum Status {
+  DependencyManagerDetected,
+  LockFileDetected,
+  LockFileParsed,
+  PackageDownloaded,
+  AllPackageDownloaded
+}
+
+export interface Package {
+  organization?: string
+  name: string
+  version: string
+}
 
 export const LockFileNameMap: Record<LockFile, string> = {
   [LockFile.NpmJsonLockFile]: 'package-lock.json',

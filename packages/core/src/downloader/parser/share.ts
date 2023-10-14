@@ -1,10 +1,4 @@
-import { type LockFile } from '../../constants'
-
-export interface Package {
-  organization?: string
-  name: string
-  version: string
-}
+import { type LockFile, type Package } from '../../constants'
 
 export type RootParsePackages = (lockFile: LockFile) => Package[]
 export type ParsePackages = (
