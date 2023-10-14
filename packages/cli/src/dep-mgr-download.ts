@@ -1,7 +1,8 @@
 import commander from 'commander'
-import { isUndefined, size } from 'lodash'
+import { isEmpty, isUndefined, size } from 'lodash'
 import { DepMgr, type Package, download } from '@dep-mgr/downloader'
 import cliProgress from 'cli-progress'
+import chalk from 'chalk'
 
 const RawDepMgrToDepMgrMap: Record<string, DepMgr> = {
   pnpm: DepMgr.Pnpm,
@@ -45,15 +46,10 @@ async function main (): Promise<void> {
     cliProgress.Presets.shades_classic
   )
 
-  const packages = []
-  const successPackages = []
-  const failPackages = []
+  const successPackages: Package[] = []
+  const failPackages: Package[] = []
 
   const lockFileParsed = (packagesParam: Package[]): void => {
-    for (const aPackage of packagesParam) {
-      packages.push(aPackage)
-    }
-
     const packageCount = size(packagesParam)
     progressBar.start(packageCount, 0)
   }
@@ -82,6 +78,42 @@ async function main (): Promise<void> {
   })
 
   progressBar.stop()
+
+  console.log(
+    chalk.green(`Download Success with ${size(successPackages)} packages\n`)
+  )
+
+  for (const aPackage of successPackages) {
+    const { organization, name, version } = aPackage
+    console.log(
+      chalk.green(
+        ` - ${
+          isUndefined(organization) ? '' : `@${organization}/`
+        }${name}@${version}`
+      )
+    )
+  }
+
+  console.log('\n')
+
+  if (!isEmpty(failPackages)) {
+    console.log(
+      chalk.red(`Download fail with ${size(failPackages)} packages\n`)
+    )
+
+    for (const aPackage of failPackages) {
+      const { organization, name, version } = aPackage
+      console.log(
+        chalk.red(
+          ` - ${
+            isUndefined(organization) ? '' : `@${organization}/`
+          }${name}@${version}`
+        )
+      )
+    }
+
+    console.log('\n')
+  }
 }
 
 void main()

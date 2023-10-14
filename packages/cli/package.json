@@ -2,9 +2,14 @@
   "name": "@dep-mgr/cli",
   "version": "0.0.0",
   "description": "A cli tool for dependency management",
-  "main": "index.js",
+  "bin": {
+    "dep-mgr": "dist/dep-mgr.js"
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "build": "rollup --config rollup.config.ts --configPlugin @rollup/plugin-typescript && rimraf dist/types",
+    "build": "rimraf dist && rollup --config rollup.config.ts --configPlugin @rollup/plugin-typescript",
     "exec": "ts-node ./src/dep-mgr.ts"
   },
   "keywords": [
@@ -15,6 +20,7 @@
   "license": "MIT",
   "dependencies": {
     "@dep-mgr/downloader": "workspace:^",
+    "chalk": "^4.1.2",
     "cli-progress": "^3.12.0",
     "commander": "^11.1.0",
     "lodash": "^4.17.21"
