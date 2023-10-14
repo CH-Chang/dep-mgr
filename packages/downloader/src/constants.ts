@@ -11,14 +11,6 @@ export enum LockFile {
   PnpmYamlLockFile
 }
 
-export enum Status {
-  DependencyManagerDetected,
-  LockFileDetected,
-  LockFileParsed,
-  PackageDownloaded,
-  AllPackageDownloaded
-}
-
 export interface Package {
   organization?: string
   name: string
