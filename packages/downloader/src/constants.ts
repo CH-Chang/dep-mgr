@@ -1,4 +1,4 @@
-export enum DenMgr {
+export enum DepMgr {
   Pnpm,
   Npm,
   Yarn
@@ -24,8 +24,8 @@ export const LockFileNameMap: Record<LockFile, string> = {
   [LockFile.PnpmYamlLockFile]: 'pnpm-lock.yaml'
 }
 
-export const DenMgrLockFileMap: Record<DenMgr, LockFile[]> = {
-  [DenMgr.Npm]: [LockFile.NpmJsonLockFile],
-  [DenMgr.Yarn]: [LockFile.YarnJsonLockFile, LockFile.YarnYamlLockFile],
-  [DenMgr.Pnpm]: [LockFile.PnpmYamlLockFile]
+export const DepMgrLockFileMap: Record<DepMgr, LockFile[]> = {
+  [DepMgr.Npm]: [LockFile.NpmJsonLockFile],
+  [DepMgr.Yarn]: [LockFile.YarnJsonLockFile, LockFile.YarnYamlLockFile],
+  [DepMgr.Pnpm]: [LockFile.PnpmYamlLockFile]
 }

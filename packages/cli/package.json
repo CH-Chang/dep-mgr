@@ -1,5 +1,5 @@
 {
-  "name": "@den-mgr/cli",
+  "name": "@dep-mgr/cli",
   "version": "0.0.0",
   "description": "A cli tool for dependency management",
   "main": "index.js",
@@ -13,7 +13,7 @@
   "author": "CH-Chang",
   "license": "MIT",
   "dependencies": {
-    "@den-mgr/downloader": "workspace:^",
+    "@dep-mgr/downloader": "workspace:^",
     "cli-progress": "^3.12.0",
     "commander": "^11.1.0"
   },

@@ -185,7 +185,7 @@ importers:
 
   packages/cli:
     dependencies:
-      '@den-mgr/downloader':
+      '@dep-mgr/downloader':
         specifier: workspace:^
         version: link:../downloader
       cli-progress:

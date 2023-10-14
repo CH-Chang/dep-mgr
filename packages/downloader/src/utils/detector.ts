@@ -1,18 +1,18 @@
 import {
   type LockFile,
-  DenMgr,
-  DenMgrLockFileMap,
+  DepMgr,
+  DepMgrLockFileMap,
   LockFileNameMap
 } from '../constants'
 import { DetectorError, DetectorErrorCode } from '../error/detector-error'
 import fs from 'fs'
 import path from 'path'
 
-export const detectDenMgr = (): DenMgr => {
-  const mgrs = [DenMgr.Npm, DenMgr.Yarn, DenMgr.Yarn]
+export const detectDepMgr = (): DepMgr => {
+  const mgrs = [DepMgr.Npm, DepMgr.Yarn, DepMgr.Yarn]
 
   for (const mgr of mgrs) {
-    const lockFiles = DenMgrLockFileMap[mgr]
+    const lockFiles = DepMgrLockFileMap[mgr]
     for (const lockFile of lockFiles) {
       const lockFileNames = LockFileNameMap[lockFile]
       for (const lockFileName of lockFileNames) {
@@ -28,8 +28,8 @@ export const detectDenMgr = (): DenMgr => {
   throw new DetectorError(DetectorErrorCode.UNKNOWN_DEPENDENCY_MANAGER)
 }
 
-export const detectLockFile = (denMgr: DenMgr): LockFile => {
-  const lockFiles = DenMgrLockFileMap[denMgr]
+export const detectLockFile = (depMgr: DepMgr): LockFile => {
+  const lockFiles = DepMgrLockFileMap[depMgr]
   for (const lockFile of lockFiles) {
     const lockFileNames = LockFileNameMap[lockFile]
     for (const lockFileName of lockFileNames) {
