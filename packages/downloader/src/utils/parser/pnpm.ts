@@ -1,7 +1,7 @@
 import { type LockFile, type Package } from '../../constants'
 import { type ParsePackagesFunction } from './share'
 import { ParserError, ParserErrorCode } from '../../error/parser-error'
-import { map, keys, split, size } from 'lodash'
+import { map, keys } from 'lodash'
 import YAML from 'yaml'
 
 interface PartialPnpmLockFileObject {
@@ -28,20 +28,43 @@ const parsePackagesVersion6Down = (
   lockFileObject: PartialV6DownPnpmLockFileObject
 ): Package[] => {
   return map(keys(lockFileObject.packages), (rp) => {
-    const array = split(rp, '/')
-    if (size(array) > 2) {
-      const innerArray = split(array[2], '@')
-      return {
-        organization: array[1],
-        name: innerArray[0],
-        version: innerArray[1]
+    let organization
+    let version
+    let name
+
+    let temp = ''
+    for (let idx = 1; idx < rp.length; idx++) {
+      if (rp[idx] === '@' && name === undefined && idx !== 1) {
+        name = temp
+        temp = ''
+        continue
       }
+
+      if (rp[idx] === '/' && name === undefined && organization === undefined) {
+        organization = temp
+        temp = ''
+        continue
+      }
+
+      if (rp[idx] === '(' && version === undefined) {
+        version = temp
+        temp = ''
+        break
+      }
+
+      if (idx === rp.length - 1 && version === undefined) {
+        version = temp + rp[idx]
+        temp = ''
+        break
+      }
+
+      temp += rp[idx]
     }
 
-    const innerArray = split(array[1], '@')
     return {
-      name: innerArray[0],
-      version: innerArray[1]
+      organization,
+      name: name as string,
+      version: version as string
     }
   })
 }
