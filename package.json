@@ -50,7 +50,7 @@
     "lint-staged": "^14.0.1",
     "markdownlint": "^0.31.1",
     "markdownlint-cli": "^0.37.0",
-    "prettier": "^3.0.3",
+    "prettier": "^2.8.8",
     "prettier-config-standard": "^7.0.0",
     "prettier-eslint": "^16.1.1",
     "rimraf": "^5.0.5",
