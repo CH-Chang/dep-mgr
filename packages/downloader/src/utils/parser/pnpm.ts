@@ -1,5 +1,5 @@
 import { type LockFile, type Package } from '../../constants'
-import { type ParsePackages } from './share'
+import { type ParsePackagesFunction } from './share'
 import { ParserError, ParserErrorCode } from '../../error/parser-error'
 import { map, keys, split, size } from 'lodash-es'
 import YAML from 'yaml'
@@ -46,7 +46,7 @@ const parsePackagesVersion6Down = (
   })
 }
 
-export const parsePackages: ParsePackages = (
+export const parsePackages: ParsePackagesFunction = (
   lockFile: LockFile,
   lockFileContent: string
 ): Package[] => {

@@ -1,7 +1,7 @@
 import { type LockFile, type Package } from '../../constants'
 
-export type RootParsePackages = (lockFile: LockFile) => Package[]
-export type ParsePackages = (
+export type RootParsePackagesFunction = (lockFile: LockFile) => Package[]
+export type ParsePackagesFunction = (
   lockFile: LockFile,
   lockFileContent: string
 ) => Package[]

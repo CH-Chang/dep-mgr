@@ -1,7 +1,7 @@
 import { type LockFile, type Package } from '../../constants'
-import { type ParsePackages } from './share'
+import { type ParsePackagesFunction } from './share'
 
-export const parsePackages: ParsePackages = (
+export const parsePackages: ParsePackagesFunction = (
   lockFile: LockFile,
   lockFileContent: string
 ): Package[] => {
