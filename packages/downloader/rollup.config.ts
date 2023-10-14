@@ -23,7 +23,6 @@ const jsConfig: RollupOptions = {
   treeshake: true,
   output: [
     {
-      // name: '@dep-mgr/downloader',
       file: 'dist/index.js',
       format: 'cjs',
       sourcemap: false
