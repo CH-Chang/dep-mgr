@@ -1,0 +1,22 @@
+{
+  "name": "@den-mgr/cli",
+  "version": "0.0.0",
+  "description": "A cli tool for dependency management",
+  "main": "index.js",
+  "scripts": {
+    "build": "rollup --config rollup.config.ts --configPlugin @rollup/plugin-typescript && rimraf dist/types"
+  },
+  "keywords": [
+    "dependency",
+    "download"
+  ],
+  "author": "CH-Chang",
+  "license": "MIT",
+  "dependencies": {
+    "cli-progress": "^3.12.0",
+    "commander": "^11.1.0"
+  },
+  "devDependencies": {
+    "@types/cli-progress": "^3.11.3"
+  }
+}

@@ -1,0 +1,4 @@
+{
+  "*.{js,jsx,ts,tsx,yml,yaml,json,jsonc,json5}": ["eslint"],
+  "*.md": ["markdownlint \"**/*.md\""]
+}

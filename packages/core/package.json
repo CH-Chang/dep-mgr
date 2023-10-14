@@ -1,0 +1,19 @@
+{
+  "name": "@den-mgr/core",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "rollup --config rollup.config.ts --configPlugin @rollup/plugin-typescript && rimraf dist/types"
+  },
+  "keywords": [
+    "dependency",
+    "download"
+  ],
+  "author": "CH-Chang",
+  "license": "MIT",
+  "dependencies": {
+    "comment-json": "^4.2.3",
+    "yaml": "^2.3.2"
+  }
+}
