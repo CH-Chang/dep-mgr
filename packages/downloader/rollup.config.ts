@@ -1,7 +1,6 @@
 import type { InputPluginOption, RollupOptions } from 'rollup'
 import license from 'rollup-plugin-license'
 import eslint from '@rollup/plugin-eslint'
-import peerDepsExternal from 'rollup-plugin-peer-deps-external'
 import typescript from '@rollup/plugin-typescript'
 import dts from 'rollup-plugin-dts'
 import del from 'rollup-plugin-delete'
@@ -15,7 +14,6 @@ const jsConfig: RollupOptions = {
     del({
       targets: ['dist/*']
     }) as InputPluginOption,
-    peerDepsExternal() as InputPluginOption,
     typescript({
       tsconfig: 'tsconfig.build.json'
     }),
@@ -25,8 +23,9 @@ const jsConfig: RollupOptions = {
   treeshake: true,
   output: [
     {
+      // name: '@dep-mgr/downloader',
       file: 'dist/index.js',
-      format: 'es',
+      format: 'cjs',
       sourcemap: false
     }
   ]

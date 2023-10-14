@@ -1,5 +1,5 @@
 import { type Package } from '../constants'
-import { isUndefined, map } from 'lodash-es'
+import { isUndefined, map } from 'lodash'
 import pLimit from 'p-limit'
 import axios from 'axios'
 import path from 'path'

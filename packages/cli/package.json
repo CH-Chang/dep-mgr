@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "rollup --config rollup.config.ts --configPlugin @rollup/plugin-typescript && rimraf dist/types",
-    "exec": "ts-node ./src/dep-mgr"
+    "exec": "ts-node ./src/dep-mgr.ts"
   },
   "keywords": [
     "dependency",
@@ -17,11 +17,11 @@
     "@dep-mgr/downloader": "workspace:^",
     "cli-progress": "^3.12.0",
     "commander": "^11.1.0",
-    "lodash-es": "^4.17.21"
+    "lodash": "^4.17.21"
   },
   "devDependencies": {
     "@types/cli-progress": "^3.11.3",
-    "@types/lodash-es": "^4.17.9",
+    "@types/lodash": "^4.14.199",
     "ts-node": "^10.9.1"
   }
 }

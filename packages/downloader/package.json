@@ -19,12 +19,12 @@
   "dependencies": {
     "axios": "^1.5.1",
     "comment-json": "^4.2.3",
-    "lodash-es": "^4.17.21",
-    "p-limit": "^4.0.0",
+    "lodash": "^4.17.21",
+    "p-limit": "^3.1.0",
     "ts-custom-error": "^3.3.1",
     "yaml": "^2.3.2"
   },
   "devDependencies": {
-    "@types/lodash-es": "^4.17.9"
+    "@types/lodash": "^4.14.199"
   }
 }

@@ -1,5 +1,5 @@
 import commander from 'commander'
-import { isUndefined, size } from 'lodash-es'
+import { isUndefined, size } from 'lodash'
 import { DepMgr, type Package, download } from '@dep-mgr/downloader'
 import cliProgress from 'cli-progress'
 

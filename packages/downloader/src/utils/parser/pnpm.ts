@@ -1,7 +1,7 @@
 import { type LockFile, type Package } from '../../constants'
 import { type ParsePackagesFunction } from './share'
 import { ParserError, ParserErrorCode } from '../../error/parser-error'
-import { map, keys, split, size } from 'lodash-es'
+import { map, keys, split, size } from 'lodash'
 import YAML from 'yaml'
 
 interface PartialPnpmLockFileObject {
