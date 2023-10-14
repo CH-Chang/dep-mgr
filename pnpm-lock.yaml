@@ -194,10 +194,19 @@ importers:
       commander:
         specifier: ^11.1.0
         version: 11.1.0
+      lodash-es:
+        specifier: ^4.17.21
+        version: 4.17.21
     devDependencies:
       '@types/cli-progress':
         specifier: ^3.11.3
         version: 3.11.3
+      '@types/lodash-es':
+        specifier: ^4.17.9
+        version: 4.17.9
+      ts-node:
+        specifier: ^10.9.1
+        version: 10.9.1(@types/node@20.8.6)(typescript@5.2.2)
 
   packages/downloader:
     dependencies:

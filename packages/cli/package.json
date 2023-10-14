@@ -4,7 +4,8 @@
   "description": "A cli tool for dependency management",
   "main": "index.js",
   "scripts": {
-    "build": "rollup --config rollup.config.ts --configPlugin @rollup/plugin-typescript && rimraf dist/types"
+    "build": "rollup --config rollup.config.ts --configPlugin @rollup/plugin-typescript && rimraf dist/types",
+    "exec": "ts-node ./src/dep-mgr"
   },
   "keywords": [
     "dependency",
@@ -15,9 +16,12 @@
   "dependencies": {
     "@dep-mgr/downloader": "workspace:^",
     "cli-progress": "^3.12.0",
-    "commander": "^11.1.0"
+    "commander": "^11.1.0",
+    "lodash-es": "^4.17.21"
   },
   "devDependencies": {
-    "@types/cli-progress": "^3.11.3"
+    "@types/cli-progress": "^3.11.3",
+    "@types/lodash-es": "^4.17.9",
+    "ts-node": "^10.9.1"
   }
 }
