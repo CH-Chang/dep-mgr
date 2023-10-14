@@ -1,4 +1,4 @@
-import { type Status, type Package } from '../../constants'
+import { type Status, type Package } from '../constants'
 
 export const download = async (
   packages: Package[],

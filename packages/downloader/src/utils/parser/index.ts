@@ -1,6 +1,6 @@
 import { type RootParsePackages, type ParsePackages } from './share'
 import { type Package, LockFile } from '../../constants'
-import { readLockFile } from '../io/reader'
+import { readLockFile } from '../reader'
 import { parsePackages as npmParsePackages } from './npm'
 import { parsePackages as pnpmParsePackages } from './pnpm'
 import { parsePackages as yarnParsePackages } from './yarn'

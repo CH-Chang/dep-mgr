@@ -1,11 +1,11 @@
 /* TODO: 解除因未開發而抑制的 eslint 警告 */
 /* eslint-disable @typescript-eslint/require-await */
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Status, type DenMgr } from '../constants'
-import { DEFAULT_OUT_DIR, DEFAULT_REGISTRY } from '../defaults'
-import { detectDenMgr, detectLockFile } from './detector'
-import { parsePackages } from './parser'
-import { download as innerDownload } from './downloader'
+import { Status, type DenMgr } from './constants'
+import { DEFAULT_OUT_DIR, DEFAULT_REGISTRY } from './defaults'
+import { detectDenMgr, detectLockFile } from './utils/detector'
+import { parsePackages } from './utils/parser'
+import { download as innerDownload } from './utils/downloader'
 
 interface Options {
   denMgr?: DenMgr

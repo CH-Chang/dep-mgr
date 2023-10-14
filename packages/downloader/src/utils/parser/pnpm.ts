@@ -1,6 +1,6 @@
 import { type LockFile, type Package } from '../../constants'
 import { type ParsePackages } from './share'
-import { ParserError, ParserErrorCode } from '../error/parser-error'
+import { ParserError, ParserErrorCode } from '../../error/parser-error'
 import { map, keys, split, size } from 'lodash-es'
 import YAML from 'yaml'
 

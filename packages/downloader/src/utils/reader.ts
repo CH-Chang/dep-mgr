@@ -1,4 +1,4 @@
-import { type LockFile, LockFileNameMap } from '../../constants'
+import { type LockFile, LockFileNameMap } from '../constants'
 import { IOError, IOErrorCode } from '../error/io-error'
 import fs from 'fs'
 import path from 'path'

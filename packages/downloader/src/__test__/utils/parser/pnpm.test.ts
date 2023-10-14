@@ -1,5 +1,5 @@
 import { LockFile } from '../../../constants'
-import { parsePackages } from '../../../downloader/parser/pnpm'
+import { parsePackages } from '../../../utils/parser/pnpm'
 import { size } from 'lodash-es'
 
 describe('測試 pnpm lockfile 解析器', (): void => {

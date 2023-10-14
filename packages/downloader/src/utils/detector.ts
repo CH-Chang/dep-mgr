@@ -3,7 +3,7 @@ import {
   DenMgr,
   DenMgrLockFileMap,
   LockFileNameMap
-} from '../../constants'
+} from '../constants'
 import { DetectorError, DetectorErrorCode } from '../error/detector-error'
 import fs from 'fs'
 import path from 'path'
