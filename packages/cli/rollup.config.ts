@@ -1,56 +1,33 @@
-import type { InputPluginOption, RollupOptions } from 'rollup'
-import license from 'rollup-plugin-license'
+import type { RollupOptions } from 'rollup'
 import eslint from '@rollup/plugin-eslint'
-import peerDepsExternal from 'rollup-plugin-peer-deps-external'
 import typescript from '@rollup/plugin-typescript'
-import dts from 'rollup-plugin-dts'
-import del from 'rollup-plugin-delete'
 import summary from 'rollup-plugin-summary'
 import terser from '@rollup/plugin-terser'
 
-const jsConfig: RollupOptions = {
-  input: 'src/index.ts',
-  plugins: [
-    eslint(),
-    del({
-      targets: ['dist/*']
-    }) as InputPluginOption,
-    peerDepsExternal() as InputPluginOption,
-    typescript({
-      tsconfig: 'tsconfig.build.json'
-    }),
-    terser(),
-    summary()
-  ],
-  treeshake: true,
-  output: [
-    {
-      file: 'dist/index.js',
-      format: 'es',
-      sourcemap: false
-    }
-  ]
-}
+const inputs = ['dep-mgr', 'dep-mgr-download']
 
-const typeConfig: RollupOptions = {
-  input: 'dist/types/index.d.ts',
-  plugins: [
-    dts(),
-    license({
-      banner: {
-        commentStyle: 'regular',
-        content:
-          'Copyright © <%= moment().format("YYYY")%> CH-Chang. All rights reserved.'
+const jsConfig = (input: string): RollupOptions => {
+  return {
+    input: `src/${input}.ts`,
+    plugins: [
+      eslint(),
+      typescript({
+        tsconfig: 'tsconfig.build.json'
+      }),
+      terser(),
+      summary()
+    ],
+    treeshake: true,
+    output: [
+      {
+        file: `dist/${input}.js`,
+        format: 'cjs',
+        banner: '#!/usr/bin/env node',
+        sourcemap: false
       }
-    }),
-    summary()
-  ],
-  output: [
-    {
-      file: 'dist/index.d.ts',
-      format: 'es'
-    }
-  ]
+    ]
+  }
 }
 
-export default [jsConfig, typeConfig]
+// eslint-disable-next-line lodash/prefer-lodash-method
+export default inputs.map(jsConfig)
