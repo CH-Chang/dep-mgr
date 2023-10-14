@@ -50,9 +50,6 @@ importers:
       '@types/node':
         specifier: ^20.8.6
         version: 20.8.6
-      '@types/rollup-plugin-peer-deps-external':
-        specifier: ^2.2.2
-        version: 2.2.2
       '@typescript-eslint/eslint-plugin':
         specifier: ^6.7.5
         version: 6.7.5(@typescript-eslint/parser@6.7.5)(eslint@8.51.0)(typescript@5.2.2)
@@ -2485,10 +2482,6 @@ packages:
       '@types/node': 20.8.6
     dev: true
 
-  /@types/estree@0.0.39:
-    resolution: {integrity: sha512-EYNwp3bU+98cpU4lAWYYL7Zz+2gryWH1qbdDTidVd6hkiR6weksdbMadyXKXNPEkQFhXM+hVO9ZygomHXp+AIw==}
-    dev: true
-
   /@types/estree@1.0.2:
     resolution: {integrity: sha512-VeiPZ9MMwXjO32/Xu7+OwflfmeoRwkE/qzndw42gGtgJwZopBnzy2gD//NN1+go1mADzkDcqf/KnFRSjTJ8xJA==}
     dev: true
@@ -2580,13 +2573,6 @@ packages:
 
   /@types/normalize-package-data@2.4.2:
     resolution: {integrity: sha512-lqa4UEhhv/2sjjIQgjX8B+RBjj47eo0mzGasklVJ78UKGQY1r0VpB9XHDaZZO9qzEFDdy4MrXLuEaSmPrPSe/A==}
-    dev: true
-
-  /@types/rollup-plugin-peer-deps-external@2.2.2:
-    resolution: {integrity: sha512-rFmfZnWApYzlJbwQVnsfEXUn8x7lBkqVJwUaAFxe99ArnLG98bi5FySPG8Z0w/oNTjgBH9tNrerLZx9pI8Kgxw==}
-    dependencies:
-      '@types/node': 20.8.6
-      rollup: 0.63.5
     dev: true
 
   /@types/semver@7.5.3:
@@ -7229,14 +7215,6 @@ packages:
       gzip-size: 7.0.0
       rollup: 4.1.0
       terser: 5.21.0
-    dev: true
-
-  /rollup@0.63.5:
-    resolution: {integrity: sha512-dFf8LpUNzIj3oE0vCvobX6rqOzHzLBoblyFp+3znPbjiSmSvOoK2kMKx+Fv9jYduG1rvcCfCveSgEaQHjWRF6g==}
-    hasBin: true
-    dependencies:
-      '@types/estree': 0.0.39
-      '@types/node': 20.8.6
     dev: true
 
   /rollup@4.1.0:
