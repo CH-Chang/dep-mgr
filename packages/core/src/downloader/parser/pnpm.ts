@@ -8,7 +8,7 @@ interface PartialPnpmLockFileObject {
   lockfileVersion: string
 }
 
-interface PartialV6PnpmLockFileObject extends PartialPnpmLockFileObject {
+interface PartialV6DownPnpmLockFileObject extends PartialPnpmLockFileObject {
   packages: Record<
   string,
   {
@@ -24,8 +24,8 @@ interface PartialV6PnpmLockFileObject extends PartialPnpmLockFileObject {
   >
 }
 
-const parseVersion6 = (
-  lockFileObject: PartialV6PnpmLockFileObject
+const parsePackagesVersion6Down = (
+  lockFileObject: PartialV6DownPnpmLockFileObject
 ): Package[] => {
   return map(keys(lockFileObject.packages), (rp) => {
     const array = split(rp, '/')
@@ -56,8 +56,11 @@ export const parsePackages: ParsePackages = (
 
   const { lockfileVersion } = lockFileObject
 
-  if (lockfileVersion === '6.0') {
-    return parseVersion6(lockFileObject as PartialV6PnpmLockFileObject)
+  // TODO: 確認其他版本的解析支援
+  if (lockfileVersion === '6.0' || lockfileVersion === '5.4') {
+    return parsePackagesVersion6Down(
+      lockFileObject as PartialV6DownPnpmLockFileObject
+    )
   }
 
   throw new ParserError(ParserErrorCode.UNSUPPORTED_PNPM_LOCK_FILE_VERSION)
