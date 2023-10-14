@@ -1,9 +1,10 @@
 import { type Package } from '../constants'
 import { isUndefined, map } from 'lodash'
 import pLimit from 'p-limit'
-import axios from 'axios'
+import fetch from 'node-fetch'
 import path from 'path'
 import fs from 'fs'
+import urlJoin from 'url-join'
 
 const downloadPackage = async (
   registry: string,
@@ -15,18 +16,18 @@ const downloadPackage = async (
   const { organization, name, version } = aPackage
 
   const url = isUndefined(organization)
-    ? `${registry}/${name}/-/${name}-${version}.tgz`
-    : `${registry}/${organization}/${name}/${name}-${version}.tgz`
+    ? urlJoin(registry, name, '-', `${name}-${version}.tgz`)
+    : urlJoin(registry, organization, name, '-', `${name}-${version}.tgz`)
 
-  const response = await axios.get<Blob>(url, { responseType: 'blob' })
+  const response = await fetch(url)
 
   // 失敗
   if (response.status !== 200) {
     failCallback?.(aPackage)
+    return
   }
 
-  const blob = response.data
-  const arrayBuffer = await blob.arrayBuffer()
+  const arrayBuffer = await response.arrayBuffer()
   const buffer = Buffer.from(arrayBuffer)
 
   const safeOutDir = path.isAbsolute(outDir)

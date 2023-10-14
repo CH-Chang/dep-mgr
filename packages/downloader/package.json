@@ -17,14 +17,16 @@
   "author": "CH-Chang",
   "license": "MIT",
   "dependencies": {
-    "axios": "^1.5.1",
     "comment-json": "^4.2.3",
     "lodash": "^4.17.21",
+    "node-fetch": "^2.7.0",
     "p-limit": "^3.1.0",
     "ts-custom-error": "^3.3.1",
+    "url-join": "^5.0.0",
     "yaml": "^2.3.2"
   },
   "devDependencies": {
-    "@types/lodash": "^4.14.199"
+    "@types/lodash": "^4.14.199",
+    "@types/node-fetch": "^2.6.6"
   }
 }
