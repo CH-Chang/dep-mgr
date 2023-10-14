@@ -35,7 +35,13 @@ export const download = async (options: Options): Promise<void> => {
   const packages = parsePackages(lockFile)
   callbacks?.lockFileParsed?.(packages)
 
-  await innerDownload(packages, registry, outDir)
+  await innerDownload(
+    packages,
+    registry,
+    outDir,
+    callbacks?.packageDownloadSuccess,
+    callbacks?.packageDownloadFail
+  )
 }
 
 export * from './defaults'
