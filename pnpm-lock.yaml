@@ -185,6 +185,9 @@ importers:
 
   packages/cli:
     dependencies:
+      '@den-mgr/core':
+        specifier: workspace:^
+        version: link:../core
       cli-progress:
         specifier: ^3.12.0
         version: 3.12.0
