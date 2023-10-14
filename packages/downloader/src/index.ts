@@ -12,11 +12,11 @@ interface Options {
   registry?: string
   outDir?: string
   callbacks?: {
-    depMgrDetected: (denMgr: DepMgr) => void
-    lockFileDetected: (lockFile: LockFile) => void
-    lockFileParsed: (packages: Package[]) => void
-    packageDownloadSuccess: (aPackage: Package) => void
-    packageDownloadFail: (aPackage: Package) => void
+    depMgrDetected?: (denMgr: DepMgr) => void
+    lockFileDetected?: (lockFile: LockFile) => void
+    lockFileParsed?: (packages: Package[]) => void
+    packageDownloadSuccess?: (aPackage: Package) => void
+    packageDownloadFail?: (aPackage: Package) => void
   }
 }
 
@@ -33,7 +33,10 @@ export const download = async (options: Options): Promise<void> => {
   callbacks?.lockFileDetected?.(lockFile)
 
   const packages = parsePackages(lockFile)
-  callbacks?.lockFileParsed(packages)
+  callbacks?.lockFileParsed?.(packages)
 
   await innerDownload(packages, registry, outDir)
 }
+
+export * from './defaults'
+export * from './constants'
