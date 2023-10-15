@@ -1,4 +1,5 @@
-import { type LockFile, type Package } from '../../constants'
+import { type Package } from '@dep-mgr/share'
+import { type LockFile } from '../../constants'
 import { type ParsePackagesFunction } from './share'
 import { ParserError, ParserErrorCode } from '../../error/parser-error'
 import { map, keys } from 'lodash'

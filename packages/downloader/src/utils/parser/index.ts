@@ -2,7 +2,8 @@ import {
   type RootParsePackagesFunction,
   type ParsePackagesFunction
 } from './share'
-import { type Package, LockFile } from '../../constants'
+import { type Package } from '@dep-mgr/share'
+import { LockFile } from '../../constants'
 import { readLockFile } from '../reader'
 import { parsePackages as npmParsePackages } from './npm'
 import { parsePackages as pnpmParsePackages } from './pnpm'

@@ -11,12 +11,6 @@ export enum LockFile {
   PnpmYamlLockFile
 }
 
-export interface Package {
-  organization?: string
-  name: string
-  version: string
-}
-
 export const LockFileNameMap: Record<LockFile, string> = {
   [LockFile.NpmJsonLockFile]: 'package-lock.json',
   [LockFile.YarnJsonLockFile]: 'yarn.lock',

@@ -1,4 +1,4 @@
-import { type Package } from '../constants'
+import { type Package } from '@dep-mgr/share'
 import { isUndefined, map } from 'lodash'
 import pLimit from 'p-limit'
 import fetch from 'node-fetch'

@@ -1,8 +1,5 @@
-/* TODO: 解除因未開發而抑制的 eslint 警告 */
-/* eslint-disable @typescript-eslint/require-await */
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import { type Package, type DepMgr, type LockFile } from './constants'
-import { DEFAULT_OUT_DIR, DEFAULT_REGISTRY } from './defaults'
+import { type Package, DEFAULT_OUT_DIR, DEFAULT_REGISTRY } from '@dep-mgr/share'
+import { type DepMgr, type LockFile } from './constants'
 import { detectDepMgr, detectLockFile } from './utils/detector'
 import { parsePackages } from './utils/parser'
 import { download as innerDownload } from './utils/downloader'
@@ -44,5 +41,4 @@ export const download = async (options: Options): Promise<void> => {
   )
 }
 
-export * from './defaults'
 export * from './constants'
