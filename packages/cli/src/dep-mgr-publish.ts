@@ -79,7 +79,7 @@ async function main (): Promise<void> {
     console.log(
       chalk.green(
         ` - ${
-          isUndefined(organization) ? '' : `@${organization}/`
+          isUndefined(organization) ? '' : `${organization}/`
         }${name}@${version}`
       )
     )
@@ -95,7 +95,7 @@ async function main (): Promise<void> {
       console.log(
         chalk.red(
           ` - ${
-            isUndefined(organization) ? '' : `@${organization}/`
+            isUndefined(organization) ? '' : `${organization}/`
           }${name}@${version}`
         )
       )
@@ -112,7 +112,7 @@ async function main (): Promise<void> {
       console.log(
         chalk.red(
           ` - ${
-            isUndefined(organization) ? '' : `@${organization}/`
+            isUndefined(organization) ? '' : `${organization}/`
           }${name}@${version}`
         )
       )
