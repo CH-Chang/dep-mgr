@@ -30,3 +30,5 @@ export const publish = async (options: Options): Promise<void> => {
     callbacks?.publishPackageFail
   )
 }
+
+export * from './constants'
