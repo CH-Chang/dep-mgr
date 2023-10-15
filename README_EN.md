@@ -2,6 +2,7 @@
 
 ![License](https://img.shields.io/github/license/CH-Chang/dep-mgr)
 ![Github last commit (branch)](https://img.shields.io/github/last-commit/CH-Chang/dep-mgr/main)
+![npm](https://img.shields.io/npm/v/%40dep-mgr%2Fcli)
 
 English | [繁體中文](README.md) | [简体中文](README_ZH_CN.md)
 
