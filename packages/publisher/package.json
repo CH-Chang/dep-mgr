@@ -19,10 +19,19 @@
   "author": "CH-Chang",
   "license": "MIT",
   "dependencies": {
+    "@dep-mgr/share": "workspace:^",
+    "comment-json": "^4.2.3",
+    "compressing": "^1.10.0",
     "lodash": "^4.17.21",
+    "nanoid": "^3.3.6",
     "node-fetch": "^2.7.0",
     "p-limit": "^3.1.0",
+    "rimraf": "^5.0.5",
     "ts-custom-error": "^3.3.1",
     "url-join": "^5.0.0"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.199",
+    "@types/node-fetch": "^2.6.6"
   }
 }
