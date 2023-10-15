@@ -4,7 +4,7 @@ import typescript from '@rollup/plugin-typescript'
 import summary from 'rollup-plugin-summary'
 import terser from '@rollup/plugin-terser'
 
-const inputs = ['dep-mgr', 'dep-mgr-download']
+const inputs = ['dep-mgr', 'dep-mgr-download', 'dep-mgr-publish']
 
 const jsConfig = (input: string): RollupOptions => {
   return {

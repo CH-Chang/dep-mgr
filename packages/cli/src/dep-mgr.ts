@@ -11,6 +11,11 @@ async function main (): Promise<void> {
       'Download all packages according to npm, yarn or pnpm lockfile'
     )
     .alias('d')
+    .command(
+      'publish',
+      'Publish all packages under directory to specific registry'
+    )
+    .alias('p')
 
   await program.parseAsync(process.argv)
 }
