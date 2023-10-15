@@ -7,8 +7,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "rollup --config rollup.config.ts --configPlugin @rollup/plugin-typescript && rimraf dist/types",
-    "test": "jest"
+    "build": "rollup --config rollup.config.ts --configPlugin @rollup/plugin-typescript && rimraf dist/types"
   },
   "keywords": [
     "dependency",
