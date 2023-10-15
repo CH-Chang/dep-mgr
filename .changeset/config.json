@@ -3,7 +3,7 @@
   "changelog": "@changesets/cli/changelog",
   "commit": ["../scripts/commit.js", { "customOption": true }],
   "fixed": [],
-  "linked": [["@dep-mgr"]],
+  "linked": [["@dep-mgr/*"]],
   "access": "public",
   "baseBranch": "main",
   "updateInternalDependencies": "patch",
