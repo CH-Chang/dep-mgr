@@ -14,7 +14,13 @@
     "version-packages": "changeset version",
     "release": "changeset publish"
   },
-  "keywords": [],
+  "keywords": [
+    "dep-mgr",
+    "dependency",
+    "package",
+    "download",
+    "publish"
+  ],
   "author": "CH-Chang",
   "license": "MIT",
   "devDependencies": {
