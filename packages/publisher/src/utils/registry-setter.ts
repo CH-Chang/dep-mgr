@@ -1,7 +1,8 @@
 import { DEFAULT_REGISTRY } from '@dep-mgr/share'
 import { rimrafSync } from 'rimraf'
 import { nanoid } from 'nanoid'
-import childProcess, { spawnSync } from 'child_process'
+import { trim } from 'lodash'
+import spawn from 'cross-spawn'
 import fs from 'fs'
 import path from 'path'
 
@@ -17,15 +18,15 @@ export const setRegistry = (registry: string): string => {
 
   const initNpmrcExists = fs.existsSync(npmrcPath)
 
-  const { output } = spawnSync(
+  const { output } = spawn.sync(
     'npm',
     ['config', 'get', 'registry', '--location=project'],
     { encoding: 'utf-8' }
   )
 
-  const initRegistry = output[0] ?? DEFAULT_REGISTRY
+  const initRegistry = trim(output[1] ?? DEFAULT_REGISTRY)
 
-  spawnSync('npm', [
+  spawn.sync('npm', [
     'config',
     'set',
     'registry',
@@ -53,19 +54,9 @@ export const rollbackRegistry = (initId: string): void => {
     return
   }
 
-  childProcess.spawnSync('npm', [
-    'config',
-    'delete',
-    'registry',
-    '--location=project'
-  ])
+  spawn.sync('npm', ['config', 'delete', 'registry', '--location=project'])
 
   if (initRegistry !== DEFAULT_REGISTRY) {
-    childProcess.spawnSync('npm', [
-      'config',
-      'set',
-      'registry',
-      '--location=project'
-    ])
+    spawn.sync('npm', ['config', 'set', 'registry', '--location=project'])
   }
 }

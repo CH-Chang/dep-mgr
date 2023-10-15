@@ -29,7 +29,7 @@ export const parsePkgDir = (pkgDir: string): LocalPackage[] => {
 
   const files = fs.readdirSync(pkgPath)
   const localPackages = flatMap(files, (f) => {
-    const stat = fs.statSync(f)
+    const stat = fs.statSync(path.resolve(pkgPath, f))
 
     const isDir = stat.isDirectory()
     if (isDir) {

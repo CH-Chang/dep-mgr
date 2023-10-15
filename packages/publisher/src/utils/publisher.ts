@@ -7,8 +7,8 @@ import pLimit from 'p-limit'
 import fetch from 'node-fetch'
 import urlJoin from 'url-join'
 import path from 'path'
-import childProcess from 'child_process'
 import fs from 'fs'
+import spawn from 'cross-spawn'
 import commonJson from 'comment-json'
 
 interface PartialPackageJson {
@@ -45,7 +45,7 @@ const isPackageExistsPublishConfig = async (
 
   await compressing.tgz.decompress(location, tempDirPath)
 
-  const packageJsonPath = path.resolve(tempDirPath, 'package.json')
+  const packageJsonPath = path.resolve(tempDirPath, 'package', 'package.json')
   const packageJsonContent = fs.readFileSync(packageJsonPath, {
     encoding: 'utf-8'
   })
@@ -87,7 +87,7 @@ const publishPackage = async (
   }
 
   const { location } = localPackage
-  const { status } = childProcess.spawnSync('npm', ['publish', location])
+  const { status } = spawn.sync('npm', ['publish', location])
 
   if (status !== 0) {
     publishPackageFail?.(localPackage)
