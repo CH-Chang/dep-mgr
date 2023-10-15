@@ -1,6 +1,7 @@
 import { type LocalPackage } from './constants'
 import { DEFAULT_PKG_DIR, DEFAULT_REGISTRY } from '@dep-mgr/share'
 import { parsePkgDir } from './utils/parser'
+import { setRegistry, rollbackRegistry } from './utils/registry-setter'
 import { publish as innerPublish } from './utils/publisher'
 
 interface Options {
@@ -22,6 +23,8 @@ export const publish = async (options: Options): Promise<void> => {
   const localPackages = parsePkgDir(pkgDir)
   callbacks?.pkgDirParsed?.(localPackages)
 
+  const id = setRegistry(registry)
+
   await innerPublish(
     localPackages,
     registry,
@@ -29,6 +32,8 @@ export const publish = async (options: Options): Promise<void> => {
     callbacks?.publishPackageSuccess,
     callbacks?.publishPackageFail
   )
+
+  rollbackRegistry(id)
 }
 
 export * from './constants'
