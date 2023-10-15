@@ -185,6 +185,9 @@ importers:
       '@dep-mgr/downloader':
         specifier: workspace:^
         version: link:../downloader
+      '@dep-mgr/share':
+        specifier: workspace:^
+        version: link:../share
       chalk:
         specifier: ^4.1.2
         version: 4.1.2

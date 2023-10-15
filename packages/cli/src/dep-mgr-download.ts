@@ -1,6 +1,7 @@
 import commander from 'commander'
 import { isEmpty, isUndefined, size } from 'lodash'
-import { DepMgr, type Package, download } from '@dep-mgr/downloader'
+import { type Package } from '@dep-mgr/share'
+import { DepMgr, download } from '@dep-mgr/downloader'
 import cliProgress from 'cli-progress'
 import chalk from 'chalk'
 
