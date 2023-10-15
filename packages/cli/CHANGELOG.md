@@ -1,5 +1,15 @@
 # @dep-mgr/cli
 
+## 0.0.2
+
+### Patch Changes
+
+- Add package repository define and readme
+- Updated dependencies
+  - @dep-mgr/downloader@0.0.2
+  - @dep-mgr/publisher@0.0.2
+  - @dep-mgr/share@0.0.2
+
 ## 0.0.1
 
 ### Patch Changes
