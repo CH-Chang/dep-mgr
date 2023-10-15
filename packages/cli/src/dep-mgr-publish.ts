@@ -39,7 +39,7 @@ async function main (): Promise<void> {
 
   const pkgDirParsed = (localPackages: LocalPackage[]): void => {
     const localPackageCount = size(localPackages)
-    progressBar.start(0, localPackageCount)
+    progressBar.start(localPackageCount, 0)
   }
 
   const publishPackageSkipped = (localPackage: LocalPackage): void => {
@@ -88,12 +88,14 @@ async function main (): Promise<void> {
   console.log('\n')
 
   if (!isEmpty(skipPackages)) {
-    console.log(chalk.red(`Publish skip with ${size(skipPackages)} packages\n`))
+    console.log(
+      chalk.blue(`Publish skip with ${size(skipPackages)} packages\n`)
+    )
 
     for (const aPackage of skipPackages) {
       const { organization, name, version } = aPackage
       console.log(
-        chalk.red(
+        chalk.blue(
           ` - ${
             isUndefined(organization) ? '' : `${organization}/`
           }${name}@${version}`
