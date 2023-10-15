@@ -1,0 +1,17 @@
+{
+  "name": "@dep-mgr/share",
+  "version": "0.0.0",
+  "description": "Share script for dep-mgr relative packages",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rollup --config rollup.config.ts --configPlugin @rollup/plugin-typescript && rimraf dist/types"
+  },
+  "keywords": [
+    "dep-mgr"
+  ],
+  "author": "CH-Chang",
+  "license": "MIT"
+}
