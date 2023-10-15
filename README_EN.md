@@ -28,7 +28,7 @@ npm i -g @dep-mgr/cli
 
 ## Usage
 
-- 根據專案 lockfile 下載依賴套件
+- Download dependency packages according to lockfile
 
   ```bash
   dep-mgr download -h
@@ -42,7 +42,7 @@ npm i -g @dep-mgr/cli
   #   -h, --help               display help for command
   ```
 
-- 推送指定目錄依賴包至指定 registry
+- publish dependency package from specified directory to specified registry
 
 ```bash
 dep-mgr publish -h
@@ -57,4 +57,4 @@ dep-mgr publish -h
 
 ## License
 
-dep-mgr 依賴包管理器 基於 MIT 授權，授權內容詳見[LICENSE](LICENSE)
+dep-mgr - dependency package manager Based on MIT license, licensed under [LICENSE](LICENSE)
