@@ -9,7 +9,25 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - name: Install Dependencies
-        run: npm install @commitlint/config-conventional
+      - name: 'Install Node.js'
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.16.0
+
+      - name: 'Install pnpm'
+        id: pnpm-install
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8.6.7
+          run_install: false
+
+      - name: Get pnpm store directory
+        id: pnpm-cache
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+
+      - name: 'Install dependency'
+        run: pnpm install
+
       - uses: JulienKode/pull-request-name-linter-action@v0.5.0
