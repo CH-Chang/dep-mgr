@@ -45,16 +45,16 @@ npm i -g @dep-mgr/cli
 
 - 推送指定目录依赖包至指定 registry
 
-```bash
-dep-mgr publish -h
+  ```bash
+  dep-mgr publish -h
 
-# Usage: dep-mgr-publish [options]
-#
-# Options:
-#   -r, --registry <string>  Specific download packages from which registry
-#   -o, --pkgDir <string>    Specific publish packages directory
-#   -h, --help               display help for command
-```
+  # Usage: dep-mgr-publish [options]
+  #
+  # Options:
+  #   -r, --registry <string>  Specific download packages from which registry
+  #   -o, --pkgDir <string>    Specific publish packages directory
+  #   -h, --help               display help for command
+  ```
 
 ## 版权声明
 
