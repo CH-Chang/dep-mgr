@@ -7,25 +7,16 @@ assignees: ''
 
 ---
 
-**Describe the bug**
-A clear and concise description of what the bug is.
+# Affected Packages
 
-**To Reproduce**
-Steps to reproduce the behavior:
-1. 
-2. 
+# Problem
 
-**Expected behavior**
-A clear and concise description of what you expected to happen.
+# Reproduce
 
-**Screenshots**
-If applicable, add screenshots to help explain your problem.
+# Screenshots
 
-**Environment (please complete the following information):**
+# Environment
  - OS: [e.g. windows, macOS]
  - Browser: [e.g. chrome, safari]
  - Package Version: [e.g. 0.0.0]
  - Node.js Version: [e.g. 18.16.0]
-
-**Additional context**
-Add any other context about the problem here.
