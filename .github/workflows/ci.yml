@@ -1,6 +1,9 @@
 name: 'ci'
 
-on: workflow_dispatch
+on:
+  pull_request:
+    branches:
+      - main
 
 jobs:
   unit-test:
@@ -37,6 +40,9 @@ jobs:
 
       - name: 'Install dependency'
         run: pnpm install
+
+      - name: 'Run build'
+        run: pnpm build
 
       - name: 'Run unit tests'
         run: pnpm test
