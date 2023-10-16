@@ -7,16 +7,17 @@ assignees: ''
 
 ---
 
-# Affected Packages
+## Affected Packages
 
-# Problem
+## Problem
 
-# Reproduce
+## Reproduce
 
-# Screenshots
+## Screenshots
 
-# Environment
- - OS: [e.g. windows, macOS]
- - Browser: [e.g. chrome, safari]
- - Package Version: [e.g. 0.0.0]
- - Node.js Version: [e.g. 18.16.0]
+## Environment
+
+- OS: [e.g. windows, macOS]
+- Browser: [e.g. chrome, safari]
+- Package Version: [e.g. 0.0.0]
+- Node.js Version: [e.g. 18.16.0]

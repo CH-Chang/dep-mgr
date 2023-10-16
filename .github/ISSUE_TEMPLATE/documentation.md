@@ -7,6 +7,6 @@ assignees: ''
 
 ---
 
-# Documentation Issue
+## Documentation Issue
 
-# Suggest Potential Alternative/Fix
+## Suggest Potential Alternative/Fix
