@@ -58,7 +58,7 @@ npm i -g @dep-mgr/cli
 
 ## 贡献我们
 
-我们欢迎您为仓库做出贡献，相关贡献方式及规范详见[CONTRIBUTING](CONTRIBUTING_ZH_CN)
+我们欢迎您为仓库做出贡献，相关贡献方式及规范详见[CONTRIBUTING](CONTRIBUTING_ZH_CN.md)
 
 ## 版权声明
 
