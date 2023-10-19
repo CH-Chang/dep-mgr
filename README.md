@@ -56,6 +56,10 @@ npm i -g @dep-mgr/cli
   #   -h, --help               display help for command
   ```
 
+## 貢獻我們
+
+我們歡迎您為倉庫做出貢獻，相關貢獻方式及規範詳見[CONTRIBUTING](CONTRIBUTING)
+
 ## 版權聲明
 
 dep-mgr 依賴包管理器 基於 MIT 授權，授權內容詳見[LICENSE](LICENSE)
