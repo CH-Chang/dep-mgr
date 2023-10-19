@@ -58,7 +58,7 @@ npm i -g @dep-mgr/cli
 
 ## 貢獻我們
 
-我們歡迎您為倉庫做出貢獻，相關貢獻方式及規範詳見[CONTRIBUTING](CONTRIBUTING)
+我們歡迎您為倉庫做出貢獻，相關貢獻方式及規範詳見[CONTRIBUTING](CONTRIBUTING.md)
 
 ## 版權聲明
 
