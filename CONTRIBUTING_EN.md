@@ -1,5 +1,7 @@
 # ❤️ Welcome to contributing to dep-mgr
 
+English | [繁體中文](CONTRIBUTING.md) | [简体中文](CONTRIBUGING_ZH_CN.md)
+
 - [Branch Naming Principles](#Branch Naming Principles)
 - Issue Principles
 - Pull Request Principles

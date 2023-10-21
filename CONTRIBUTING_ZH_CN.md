@@ -1,5 +1,7 @@
 # ❤️ 欢迎您对 dep-mgr 作出贡献
 
+[English](CONTRIBUGING_EN.md) | [繁體中文](CONTRIBUTING.md) | 简体中文
+
 - 分支命名原则
 - Issue 原则
 - Pull Request 原则
