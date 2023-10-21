@@ -10,10 +10,27 @@
   "targetDefaults": {
     "build": {
       "dependsOn": ["^build"],
+      "inputs": [
+        "{projectRoot}/src/**/*",
+        "!{projectRoot}/src/__test__/**/*",
+        "{projectRoot}/rollup.config.ts",
+        "{projectRoot}/tsconfig.build.json",
+        "{projectRoot}/tsconfig.json",
+        "{projectRoot}/package.json",
+        "{workspaceRoot}/tsconfig.json"
+      ],
       "outputs": ["{projectRoot}/dist"]
     },
     "test": {
-      "dependsOn": ["^test"]
+      "dependsOn": ["^test"],
+      "inputs": [
+        "{projectRoot}/src/__test__/**/*",
+        "{projectRoot}/rollup.config.ts",
+        "{projectRoot}/tsconfig.build.json",
+        "{projectRoot}/tsconfig.json",
+        "{projectRoot}/package.json",
+        "{workspaceRoot}/tsconfig.json"
+      ]
     }
   },
   "affected": {
