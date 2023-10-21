@@ -36,10 +36,10 @@
 
   ```bash
   # 建置所有包
-  pnpm run build
+  pnpm build
 
   # 建置单一包
-  pnpm --filter [定义在 package.json 的包名] run build
+  pnpm build [定义在 package.json 的包名]
 
   ```
 
@@ -50,7 +50,7 @@
   pnpm run test
 
   # 测试单一包
-  pnpm --filter [定义在 package.json 的包名] run test
+  pnpm test [定义在 package.json 的包名]
   ```
 
 - 发布
