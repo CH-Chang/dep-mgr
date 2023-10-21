@@ -1,6 +1,6 @@
 # ❤️ 歡迎您對 dep-mgr 作出貢獻
 
-[English](CONTRIBUGING_EN.md) | 繁體中文 | [简体中文](CONTRIBUGING_ZH_CN.md)
+[English](CONTRIBUTING_EN.md) | 繁體中文 | [简体中文](CONTRIBUTING_ZH_CN.md)
 
 - 分支命名原則
 - Issue 原則
