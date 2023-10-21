@@ -1,5 +1,12 @@
+# dependencies
 node_modules
+
+# compiled output
 dist
 types
-dependency-packages
+
+# compiled cache output
 .nx/cache
+
+# executed output
+dependency-packages
