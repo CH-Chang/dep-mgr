@@ -1,5 +1,7 @@
 # ❤️ Welcome to contributing to dep-mgr
 
+English | [繁體中文](CONTRIBUTING.md) | [简体中文](CONTRIBUGING_ZH_CN.md)
+
 - [Branch Naming Principles](#Branch Naming Principles)
 - Issue Principles
 - Pull Request Principles
@@ -36,10 +38,10 @@ The build/test/release commands for this repository are listed below
 
   ```bash
   # Building for all packages
-  pnpm run build
+  pnpm build
 
   # Building for single packages
-  pnpm --filter [the package name defined in package.json] run build
+  pnpm build [the package name defined in package.json]
 
   ```
 
@@ -47,10 +49,10 @@ The build/test/release commands for this repository are listed below
 
   ```bash
   # Testing for all packages
-  pnpm run test
+  pnpm test
 
   # Testing for single packages
-  pnpm --filter [the package name defined in package.json] run test
+  pnpm test [the package name defined in package.json]
   ```
 
 - Releasing

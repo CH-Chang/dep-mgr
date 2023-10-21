@@ -53,6 +53,11 @@ npm i -g @dep-mgr/cli
   #   -h, --help               display help for command
   ```
 
+## Contribution
+
+We are loving to you to contribute to this repository.
+See the detail of contribution methods and specification under [CONTRIBUTING](CONTRIBUTING_EN.md)
+
 ## License
 
 dep-mgr - dependency package manager Based on MIT license, licensed under [LICENSE](LICENSE)
