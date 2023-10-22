@@ -41,7 +41,7 @@ The build/test/release commands for this repository are listed below
   pnpm build
 
   # Building for single packages
-  pnpm build [the package name defined in package.json]
+  pnpm build-single [the package name defined in package.json]
 
   ```
 
@@ -52,7 +52,7 @@ The build/test/release commands for this repository are listed below
   pnpm test
 
   # Testing for single packages
-  pnpm test [the package name defined in package.json]
+  pnpm test-single [the package name defined in package.json]
   ```
 
 - Releasing
