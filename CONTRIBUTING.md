@@ -41,7 +41,7 @@
   pnpm build
 
   # 建置單一包
-  pnpm build [定義在 package.json 的包名]
+  pnpm build-single [定義在 package.json 的包名]
   ```
 
 - 測試
@@ -51,7 +51,7 @@
   pnpm test
 
   # 測試單一包
-  pnpm test [定義在 package.json 的包名]
+  pnpm test-single [定義在 package.json 的包名]
   ```
 
 - 發布
