@@ -19,6 +19,7 @@
   "license": "MIT",
   "dependencies": {
     "@dep-mgr/share": "workspace:^",
+    "@pnpm/dependency-path": "^2.1.6",
     "@pnpm/lockfile-file": "^8.1.5",
     "lodash": "^4.17.21",
     "node-fetch": "^2.7.0",

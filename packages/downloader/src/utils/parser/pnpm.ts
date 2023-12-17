@@ -4,13 +4,17 @@ import { type ParsePackagesFunction } from './share'
 import { ParserError, ParserErrorCode } from '../../error/parser-error'
 import { isNull, isUndefined, chain, includes, split } from 'lodash'
 import { readWantedLockfile } from '@pnpm/lockfile-file'
+import dependencyPath from '@pnpm/dependency-path'
 import path from 'path'
 
 export const parsePackages: ParsePackagesFunction = async (
   lockFile: LockFile,
   lockFilePath: string
 ): Promise<Package[]> => {
-  const parsed = await readWantedLockfile(path.dirname(lockFilePath), { ignoreIncompatible: false })
+  const parsed = await readWantedLockfile(path.dirname(lockFilePath), {
+    ignoreIncompatible: false
+  })
+
   if (isNull(parsed)) {
     throw new ParserError(ParserErrorCode.PARSE_PNPM_LOCK_FILE_ERROR)
   }
@@ -21,10 +25,12 @@ export const parsePackages: ParsePackagesFunction = async (
   }
 
   return chain(packages)
-    .filter(p => !isUndefined(p.name) && !isUndefined(p.version))
+    .keys()
+    .map((k) => dependencyPath.parse(k))
+    .filter(({ name, version }) => !isUndefined(name) && !isUndefined(version))
     .map(({ name, version }) => ({
       organization: includes(name, '@') ? split(name, '/', 2)[0] : undefined,
-      name: includes(name, '@') ? split(name, '/', 2)[1] : name as string,
+      name: includes(name, '@') ? split(name, '/', 2)[1] : (name as string),
       version: version as string
     }))
     .value()
