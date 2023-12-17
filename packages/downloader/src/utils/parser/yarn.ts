@@ -5,7 +5,7 @@ import { ParserError, ParserErrorCode } from '../../error/parser-error'
 
 export const parsePackages: ParsePackagesFunction = (
   lockFile: LockFile,
-  lockFileContent: string
+  lockFilePath: string
 ): Package[] => {
   throw new ParserError(ParserErrorCode.NOT_IMPLEMENT)
 }
