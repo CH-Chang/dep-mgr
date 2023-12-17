@@ -19,13 +19,13 @@
   "license": "MIT",
   "dependencies": {
     "@dep-mgr/share": "workspace:^",
-    "comment-json": "^4.2.3",
+    "@pnpm/lockfile-file": "^8.1.5",
     "lodash": "^4.17.21",
     "node-fetch": "^2.7.0",
     "p-limit": "^3.1.0",
+    "snyk-nodejs-lockfile-parser": "^1.52.10",
     "ts-custom-error": "^3.3.1",
-    "url-join": "^4.0.1",
-    "yaml": "^2.3.2"
+    "url-join": "^4.0.1"
   },
   "devDependencies": {
     "@types/lodash": "^4.14.199",
