@@ -16,10 +16,10 @@ const lockFileParsePackagesMap: Record<LockFile, ParsePackagesFunction> = {
   [LockFile.PnpmYamlLockFile]: pnpmParsePackages
 }
 
-export const parsePackages: RootParsePackagesFunction = (
+export const parsePackages: RootParsePackagesFunction = async (
   lockFile: LockFile
-): Package[] => {
+): Promise<Package[]> => {
   const lockFilePath = readLockFilePath(lockFile)
-  const packages = lockFileParsePackagesMap[lockFile](lockFile, lockFilePath)
+  const packages = await lockFileParsePackagesMap[lockFile](lockFile, lockFilePath)
   return packages
 }

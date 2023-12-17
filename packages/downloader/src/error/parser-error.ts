@@ -1,13 +1,16 @@
 import { CustomError } from 'ts-custom-error'
 
 export enum ParserErrorCode {
-  UNSUPPORTED_PNPM_LOCK_FILE_VERSION,
+  PARSE_PNPM_LOCK_FILE_ERROR,
+  UNSUPPORTED_YARN_LOCK_FILE,
   NOT_IMPLEMENT
 }
 
 const DefaultParserErrorMessage: Record<ParserErrorCode, string> = {
-  [ParserErrorCode.UNSUPPORTED_PNPM_LOCK_FILE_VERSION]:
-    'Unsupported pnpm lock file version',
+  [ParserErrorCode.PARSE_PNPM_LOCK_FILE_ERROR]:
+    'Parse pnpm lock file error',
+  [ParserErrorCode.UNSUPPORTED_YARN_LOCK_FILE]:
+    'Unsupported yarn lockfile',
   [ParserErrorCode.NOT_IMPLEMENT]: 'Specific lock file parser not implement yet'
 }
 
