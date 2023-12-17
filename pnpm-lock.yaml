@@ -240,6 +240,9 @@ importers:
       p-limit:
         specifier: ^3.1.0
         version: 3.1.0
+      parse-package-name:
+        specifier: ^1.0.0
+        version: 1.0.0
       ts-custom-error:
         specifier: ^3.3.1
         version: 3.3.1
@@ -7474,6 +7477,10 @@ packages:
       json-parse-even-better-errors: 2.3.1
       lines-and-columns: 1.2.4
     dev: true
+
+  /parse-package-name@1.0.0:
+    resolution: {integrity: sha512-kBeTUtcj+SkyfaW4+KBe0HtsloBJ/mKTPoxpVdA57GZiPerREsUWJOhVj9anXweFiJkm5y8FG1sxFZkZ0SN6wg==}
+    dev: false
 
   /parse-passwd@1.0.0:
     resolution: {integrity: sha512-1Y1A//QUXEZK7YKz+rD9WydcE1+EuPr6ZBgKecAB8tmoW6UFv0NREVJe1p+jRxtThkcbbKkfwIbWJe/IeE6m2Q==}
