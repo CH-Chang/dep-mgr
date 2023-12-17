@@ -1,6 +1,6 @@
 import { type Package } from '@dep-mgr/share'
-import { LockFile } from '../../constants'
 import { type ParsePackagesFunction } from './share'
+import { LockFile } from '../../constants'
 import { ParserError, ParserErrorCode } from '../../error/parser-error'
 import { extractPkgsFromYarnLockV1 } from 'snyk-nodejs-lockfile-parser'
 import { readFileSync } from 'fs'
@@ -20,7 +20,7 @@ const parseYarnV2Packages = (lockFileContent: string): Package[] => {
 export const parsePackages: ParsePackagesFunction = async (
   lockFile: LockFile,
   lockFilePath: string
-// eslint-disable-next-line @typescript-eslint/require-await
+  // eslint-disable-next-line @typescript-eslint/require-await
 ): Promise<Package[]> => {
   const lockFileContent = readFileSync(lockFilePath, { encoding: 'utf-8' })
 
