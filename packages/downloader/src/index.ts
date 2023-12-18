@@ -29,7 +29,7 @@ export const download = async (options: Options): Promise<void> => {
   const lockFile = detectLockFile(depMgr)
   callbacks?.lockFileDetected?.(lockFile)
 
-  const packages = parsePackages(lockFile)
+  const packages = await parsePackages(lockFile)
   callbacks?.lockFileParsed?.(packages)
 
   await innerDownload(

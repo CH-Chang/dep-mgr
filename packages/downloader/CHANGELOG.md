@@ -1,5 +1,11 @@
 # @dep-mgr/downloader
 
+## 0.0.3
+
+### Patch Changes
+
+- Support yarn and solve pnpm parser issue
+
 ## 0.0.2
 
 ### Patch Changes

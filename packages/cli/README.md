@@ -13,7 +13,7 @@
 
 "dep-mgr - dependency package manager" provides the following two features:
 
-- Download dependency packages according to pnpm lockfile from the specified registry.
+- Download dependency packages according to pnpm/yarn lockfile from the specified registry.
 - Push all dependency packages from a specified directory to a specified registry.
 
 The above two features allow you to download all the dependency packages needed for your project to local and push them back to a specified private registry, so that package machines that only have access to a specific registry can download the dependencies needed for your project.

@@ -13,7 +13,7 @@
 
 "dep-mgr 依赖包管理器" 提供下列两项功能
 
-- 根据 pnpm lockfile 至指定 registry 下载相关依赖套件
+- 根据 pnpm/yarn lockfile 至指定 registry 下载相关依赖套件
 - 将指定目录内的所有依赖包推送至指定 registry
 
 透过上述两项功能，可将专案所需要的所有依赖包下载至本地，并重新推送至指定的私人 registry，以让仅能存取特定 registry 的包版机器能够正常下载专案所需的依赖套件。

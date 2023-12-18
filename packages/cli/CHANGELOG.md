@@ -1,5 +1,13 @@
 # @dep-mgr/cli
 
+## 0.0.3
+
+### Patch Changes
+
+- Support yarn and solve pnpm parser issue
+- Updated dependencies
+  - @dep-mgr/downloader@0.0.3
+
 ## 0.0.2
 
 ### Patch Changes

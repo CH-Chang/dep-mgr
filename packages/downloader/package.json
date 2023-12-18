@@ -1,6 +1,6 @@
 {
   "name": "@dep-mgr/downloader",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A script to download dependency packages according to lockfile",
   "main": "dist/index.js",
   "files": [
@@ -19,18 +19,21 @@
   "license": "MIT",
   "dependencies": {
     "@dep-mgr/share": "workspace:^",
-    "comment-json": "^4.2.3",
+    "@pnpm/dependency-path": "^2.1.6",
+    "@pnpm/lockfile-file": "^8.1.5",
+    "@yarnpkg/lockfile": "^1.1.0",
     "lodash": "^4.17.21",
     "node-fetch": "^2.7.0",
     "p-limit": "^3.1.0",
+    "parse-package-name": "^1.0.0",
     "ts-custom-error": "^3.3.1",
-    "url-join": "^4.0.1",
-    "yaml": "^2.3.2"
+    "url-join": "^4.0.1"
   },
   "devDependencies": {
     "@types/lodash": "^4.14.199",
     "@types/node-fetch": "^2.6.6",
-    "@types/url-join": "^4.0.1"
+    "@types/url-join": "^4.0.1",
+    "@types/yarnpkg__lockfile": "^1.1.9"
   },
   "repository": "https://github.com/CH-Chang/dep-mgr"
 }
