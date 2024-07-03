@@ -1,5 +1,13 @@
 # @dep-mgr/cli
 
+## 0.0.4
+
+### Patch Changes
+
+- Bump dependency to support new pnpm lockfile version
+- Updated dependencies
+  - @dep-mgr/downloader@0.0.4
+
 ## 0.0.3
 
 ### Patch Changes
