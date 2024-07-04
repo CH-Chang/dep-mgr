@@ -8,6 +8,8 @@ import fetch from 'node-fetch'
 import urlJoin from 'url-join'
 import spawn from 'cross-spawn'
 import commonJson from 'comment-json'
+import fs from 'fs'
+import path from 'path'
 
 interface PartialPackageJson {
   publishConfig?: {
@@ -83,7 +85,11 @@ const publishPackage = async (
   }
 
   const { location } = localPackage
-  const { status } = spawn.sync('npm', ['publish', location], { cwd: workspace })
+
+  const workspaceLocation = path.resolve(workspace, path.basename(location))
+  fs.cpSync(location, workspaceLocation)
+
+  const { status } = spawn.sync('npm', ['publish', workspaceLocation], { cwd: workspace })
 
   if (status !== 0) {
     publishPackageFail?.(localPackage)
