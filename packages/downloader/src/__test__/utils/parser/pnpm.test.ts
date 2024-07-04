@@ -4,7 +4,7 @@ import { parsePackages } from '../../../utils/parser/pnpm'
 import path from 'path'
 
 describe('測試 pnpm lockfile 解析器', (): void => {
-  it('佔位測試', async (): Promise<void> => {
+  it('測試 pnpm lockfile 解析', async (): Promise<void> => {
     expect.assertions(1)
 
     const lockFile = LockFile.PnpmYamlLockFile
