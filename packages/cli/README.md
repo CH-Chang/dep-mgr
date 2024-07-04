@@ -5,7 +5,7 @@
 ![npm](https://img.shields.io/npm/v/%40dep-mgr%2Fcli)
 ![npm download](https://img.shields.io/npm/dt/%40dep-mgr/cli)
 
-[English](README_EN.md) | 繁體中文 | [简体中文](README_ZH_CN.md)
+English | [繁體中文](README.md) | [简体中文](README_ZH_CN.md)
 
 ---
 
