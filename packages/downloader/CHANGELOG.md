@@ -1,5 +1,11 @@
 # @dep-mgr/downloader
 
+## 0.0.5
+
+### Patch Changes
+
+- Publish in workspace and fix package.json file extracting bugs
+
 ## 0.0.4
 
 ### Patch Changes

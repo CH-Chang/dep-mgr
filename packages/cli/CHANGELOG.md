@@ -1,5 +1,14 @@
 # @dep-mgr/cli
 
+## 0.0.5
+
+### Patch Changes
+
+- Publish in workspace and fix package.json file extracting bugs
+- Updated dependencies
+  - @dep-mgr/downloader@0.0.5
+  - @dep-mgr/publisher@0.0.5
+
 ## 0.0.4
 
 ### Patch Changes
