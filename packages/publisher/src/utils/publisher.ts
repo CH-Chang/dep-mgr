@@ -1,12 +1,12 @@
 import { type LocalPackage } from '../constants'
-import { map, isUndefined } from 'lodash'
-import { nanoid } from 'nanoid'
-import { rimrafSync } from 'rimraf'
-import compressing from 'compressing'
+import { map, isUndefined, endsWith, isNull } from 'lodash'
+import { PublishError, PublishErrorCode } from '../errors/publish-error'
+import { retryAsync } from 'ts-retry'
+import minizlib from 'minizlib'
+import tar from 'tar-stream'
 import pLimit from 'p-limit'
 import fetch from 'node-fetch'
 import urlJoin from 'url-join'
-import path from 'path'
 import fs from 'fs'
 import spawn from 'cross-spawn'
 import commonJson from 'comment-json'
@@ -19,6 +19,42 @@ interface PartialPackageJson {
   }
 }
 
+const extractPackageJsonFromTarball = async (
+  location: string
+): Promise<string | null> => {
+  return await new Promise((resolve, reject) => {
+    const extract = tar.extract()
+
+    let data: string | null = null
+    extract.on('entry', (headers, stream, next) => {
+      if (!endsWith(headers.name, 'package.json')) {
+        stream.resume()
+        next()
+      }
+
+      stream.on('data', (chunk) => {
+        if (isNull(data)) {
+          data = ''
+        }
+
+        data += chunk
+      })
+
+      stream.on('end', () => {
+        next()
+      })
+    })
+
+    extract.on('finish', () => {
+      resolve(data)
+    })
+
+    fs.createReadStream(location)
+      .pipe(new minizlib.Gunzip({}))
+      .pipe(extract)
+  })
+}
+
 const isRegistryExistsPackage = async (
   localPackage: LocalPackage,
   registry: string
@@ -29,7 +65,10 @@ const isRegistryExistsPackage = async (
     ? urlJoin(registry, name, '-', `${name}-${version}.tgz`)
     : urlJoin(registry, organization, name, '-', `${name}-${version}.tgz`)
 
-  const response = await fetch(url)
+  const response = await retryAsync(
+    async () => await fetch(url),
+    { delay: 100, maxTry: 3 }
+  )
 
   return response.status === 200
 }
@@ -40,18 +79,12 @@ const isPackageExistsPublishConfig = async (
 ): Promise<boolean> => {
   const { location } = localPackage
 
-  const tempDirName = nanoid()
-  const tempDirPath = path.resolve(process.cwd(), tempDirName)
+  const packageJsonContent = await extractPackageJsonFromTarball(location)
+  if (isNull(packageJsonContent)) {
+    throw new PublishError(PublishErrorCode.INVALID_PACKAGE_TARBALL)
+  }
 
-  await compressing.tgz.decompress(location, tempDirPath)
-
-  const packageJsonPath = path.resolve(tempDirPath, 'package', 'package.json')
-  const packageJsonContent = fs.readFileSync(packageJsonPath, {
-    encoding: 'utf-8'
-  })
   const packageJson = commonJson.parse(packageJsonContent) as PartialPackageJson
-
-  rimrafSync(tempDirPath)
 
   const { publishConfig } = packageJson
   if (!isUndefined(publishConfig)) {
@@ -65,6 +98,7 @@ const isPackageExistsPublishConfig = async (
 }
 
 const publishPackage = async (
+  workspace: string,
   localPackage: LocalPackage,
   registry: string,
   publishPackageSkipped?: (localPackage: LocalPackage) => void,
@@ -87,7 +121,7 @@ const publishPackage = async (
   }
 
   const { location } = localPackage
-  const { status } = spawn.sync('npm', ['publish', location])
+  const { status } = spawn.sync('npm', ['publish', location], { cwd: workspace })
 
   if (status !== 0) {
     publishPackageFail?.(localPackage)
@@ -98,6 +132,7 @@ const publishPackage = async (
 }
 
 export const publish = async (
+  workspace: string,
   localPackages: LocalPackage[],
   registry: string,
   publishPackageSkipped?: (localPackage: LocalPackage) => void,
@@ -108,6 +143,7 @@ export const publish = async (
   const tasks = map(localPackages, async (lp) => {
     await limit(async () => {
       await publishPackage(
+        workspace,
         lp,
         registry,
         publishPackageSkipped,
