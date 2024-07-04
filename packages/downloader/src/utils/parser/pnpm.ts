@@ -4,7 +4,7 @@ import { type ParsePackagesFunction } from './share'
 import { ParserError, ParserErrorCode } from '../../error/parser-error'
 import { isNull, isUndefined, chain, includes, split } from 'lodash'
 import { readWantedLockfile } from '@pnpm/lockfile-file'
-import dependencyPath from '@pnpm/dependency-path'
+import { parse } from '@pnpm/dependency-path'
 import path from 'path'
 
 export const parsePackages: ParsePackagesFunction = async (
@@ -26,7 +26,7 @@ export const parsePackages: ParsePackagesFunction = async (
 
   return chain(packages)
     .keys()
-    .map((k) => dependencyPath.parse(k))
+    .map((k) => parse(k))
     .filter(({ name, version }) => !isUndefined(name) && !isUndefined(version))
     .map(({ name, version }) => ({
       organization: includes(name, '@') ? split(name, '/', 2)[0] : undefined,
