@@ -1,35 +1,20 @@
 import { type Package } from '@dep-mgr/share'
-import { isUndefined, map } from 'lodash'
+import { isNull, isUndefined, map } from 'lodash'
+import { retryAsync } from 'ts-retry'
 import pLimit from 'p-limit'
 import fetch from 'node-fetch'
 import path from 'path'
 import fs from 'fs'
 import urlJoin from 'url-join'
 
-const downloadPackage = async (
-  registry: string,
-  aPackage: Package,
-  outDir: string,
-  successCallback?: (aPackage: Package) => void,
-  failCallback?: (aPackage: Package) => void
-): Promise<void> => {
-  const { organization, name, version } = aPackage
-
+const joinPackageUrl = (organization: string | undefined, name: string, version: string): string => {
   const url = isUndefined(organization)
-    ? urlJoin(registry, name, '-', `${name}-${version}.tgz`)
-    : urlJoin(registry, organization, name, '-', `${name}-${version}.tgz`)
+    ? urlJoin(name, '-', `${name}-${version}.tgz`)
+    : urlJoin(organization, name, '-', `${name}-${version}.tgz`)
+  return url
+}
 
-  const response = await fetch(url)
-
-  // 失敗
-  if (response.status !== 200) {
-    failCallback?.(aPackage)
-    return
-  }
-
-  const arrayBuffer = await response.arrayBuffer()
-  const buffer = Buffer.from(arrayBuffer)
-
+const joinPackagePath = (organization: string | undefined, name: string, version: string, outDir: string): string => {
   const safeOutDir = path.isAbsolute(outDir)
     ? outDir
     : path.resolve(process.cwd(), outDir)
@@ -40,11 +25,54 @@ const downloadPackage = async (
 
   const fullSafeOutPath = path.resolve(fullSafeOutDir, `${name}-${version}.tgz`)
 
-  if (!fs.existsSync(fullSafeOutDir)) {
-    fs.mkdirSync(fullSafeOutDir, { recursive: true })
+  return fullSafeOutPath
+}
+
+const requestPackage = async (url: string): Promise<Buffer | null> => {
+  const response = await retryAsync(
+    async () => await fetch(url),
+    { delay: 100, maxTry: 3 }
+  )
+
+  const { status } = response
+
+  if (status === 200) {
+    const packageArrayBuffer = await response.arrayBuffer()
+    const packageBuffer = Buffer.from(packageArrayBuffer)
+    return packageBuffer
   }
 
-  fs.writeFileSync(fullSafeOutPath, buffer)
+  return null
+}
+
+const savePackage = (location: string, packageBuffer: Buffer): void => {
+  const dir = path.dirname(location)
+
+  if (!fs.existsSync(dir)) {
+    fs.mkdirSync(dir, { recursive: true })
+  }
+
+  fs.writeFileSync(location, packageBuffer)
+}
+
+const downloadPackage = async (
+  registry: string,
+  aPackage: Package,
+  outDir: string,
+  successCallback?: (aPackage: Package) => void,
+  failCallback?: (aPackage: Package) => void
+): Promise<void> => {
+  const { organization, name, version } = aPackage
+
+  const url = joinPackageUrl(organization, name, version)
+  const packageBuffer = await requestPackage(url)
+  if (isNull(packageBuffer)) {
+    failCallback?.(aPackage)
+    return
+  }
+
+  const location = joinPackagePath(organization, name, version, outDir)
+  savePackage(location, packageBuffer)
 
   successCallback?.(aPackage)
 }
