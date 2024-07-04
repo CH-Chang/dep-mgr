@@ -21,7 +21,6 @@
   "dependencies": {
     "@dep-mgr/share": "workspace:^",
     "comment-json": "^4.2.3",
-    "compressing": "^1.10.0",
     "cross-spawn": "^7.0.3",
     "lodash": "^4.17.21",
     "minizlib": "^3.0.1",
