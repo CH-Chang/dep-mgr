@@ -1,13 +1,11 @@
 import { type LocalPackage } from '../constants'
-import { map, isUndefined, endsWith, isNull } from 'lodash'
+import { map, isUndefined, isNull } from 'lodash'
 import { PublishError, PublishErrorCode } from '../errors/publish-error'
 import { retryAsync } from 'ts-retry'
-import minizlib from 'minizlib'
-import tar from 'tar-stream'
+import { extractPackageJsonFromTarball } from './extractor'
 import pLimit from 'p-limit'
 import fetch from 'node-fetch'
 import urlJoin from 'url-join'
-import fs from 'fs'
 import spawn from 'cross-spawn'
 import commonJson from 'comment-json'
 
@@ -17,42 +15,6 @@ interface PartialPackageJson {
     tag?: string
     access?: string
   }
-}
-
-const extractPackageJsonFromTarball = async (
-  location: string
-): Promise<string | null> => {
-  return await new Promise((resolve, reject) => {
-    const extract = tar.extract()
-
-    let data: string | null = null
-    extract.on('entry', (headers, stream, next) => {
-      if (!endsWith(headers.name, 'package.json')) {
-        stream.resume()
-        next()
-      }
-
-      stream.on('data', (chunk) => {
-        if (isNull(data)) {
-          data = ''
-        }
-
-        data += chunk
-      })
-
-      stream.on('end', () => {
-        next()
-      })
-    })
-
-    extract.on('finish', () => {
-      resolve(data)
-    })
-
-    fs.createReadStream(location)
-      .pipe(new minizlib.Gunzip({}))
-      .pipe(extract)
-  })
 }
 
 const isRegistryExistsPackage = async (
