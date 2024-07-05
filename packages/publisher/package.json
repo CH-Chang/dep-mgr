@@ -22,6 +22,7 @@
     "@dep-mgr/share": "workspace:^",
     "comment-json": "^4.2.3",
     "cross-spawn": "^7.0.3",
+    "graceful-fs": "^4.2.11",
     "lodash": "^4.17.21",
     "minizlib": "^3.0.1",
     "nanoid": "^3.3.6",
@@ -34,6 +35,7 @@
   },
   "devDependencies": {
     "@types/cross-spawn": "^6.0.3",
+    "@types/graceful-fs": "^4.1.9",
     "@types/lodash": "^4.14.199",
     "@types/node-fetch": "^2.6.6",
     "@types/tar-stream": "^3.1.3"

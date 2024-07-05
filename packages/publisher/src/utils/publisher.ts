@@ -4,7 +4,7 @@ import { map } from 'lodash'
 import { rimrafSync } from 'rimraf'
 import pLimit from 'p-limit'
 import spawn from 'cross-spawn'
-import fs from 'fs'
+import fs from 'graceful-fs'
 import path from 'path'
 
 const publishPackage = async (

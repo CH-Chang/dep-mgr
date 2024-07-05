@@ -1,7 +1,7 @@
 import { createWorkspace, removeWorkspace } from '../../utils/workspace'
 import { includes } from 'lodash'
 import { nanoid } from 'nanoid'
-import fs from 'fs'
+import fs from 'graceful-fs'
 import path from 'path'
 import os from 'os'
 

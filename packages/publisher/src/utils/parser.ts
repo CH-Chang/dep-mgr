@@ -2,7 +2,7 @@ import { type LocalPackage } from '../constants'
 import { ParserError, ParserErrorCode } from '../errors/parser-error'
 import { flatMap, join, last, map, size, slice, split } from 'lodash'
 import path from 'path'
-import fs from 'fs'
+import fs from 'graceful-fs'
 
 const parsePkgFilename = (
   filename: string

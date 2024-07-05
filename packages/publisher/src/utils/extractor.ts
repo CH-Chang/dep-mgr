@@ -1,5 +1,5 @@
 import tar from 'tar-stream'
-import fs from 'fs'
+import fs from 'graceful-fs'
 import { Gunzip } from 'minizlib'
 import { endsWith, isNull } from 'lodash'
 

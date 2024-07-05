@@ -231,6 +231,9 @@ importers:
       '@yarnpkg/lockfile':
         specifier: ^1.1.0
         version: 1.1.0
+      graceful-fs:
+        specifier: ^4.2.11
+        version: 4.2.11
       lodash:
         specifier: ^4.17.21
         version: 4.17.21
@@ -250,6 +253,9 @@ importers:
         specifier: ^4.2.5
         version: 4.2.5
     devDependencies:
+      '@types/graceful-fs':
+        specifier: ^4.1.9
+        version: 4.1.9
       '@types/lodash':
         specifier: ^4.14.199
         version: 4.14.199
@@ -271,6 +277,9 @@ importers:
       cross-spawn:
         specifier: ^7.0.3
         version: 7.0.3
+      graceful-fs:
+        specifier: ^4.2.11
+        version: 4.2.11
       lodash:
         specifier: ^4.17.21
         version: 4.17.21
@@ -302,6 +311,9 @@ importers:
       '@types/cross-spawn':
         specifier: ^6.0.3
         version: 6.0.3
+      '@types/graceful-fs':
+        specifier: ^4.1.9
+        version: 4.1.9
       '@types/lodash':
         specifier: ^4.14.199
         version: 4.14.199
@@ -6161,7 +6173,7 @@ snapshots:
       '@types/node': 20.5.1
       chalk: 4.1.2
       cosmiconfig: 8.3.6(typescript@5.5.3)
-      cosmiconfig-typescript-loader: 4.4.0(@types/node@20.5.1)(cosmiconfig@8.3.6(typescript@5.5.3))(ts-node@10.9.2(@types/node@20.14.9)(typescript@5.5.3))(typescript@5.5.3)
+      cosmiconfig-typescript-loader: 4.4.0(@types/node@20.5.1)(cosmiconfig@8.3.6(typescript@5.5.3))(ts-node@10.9.2(@types/node@20.5.1)(typescript@5.5.3))(typescript@5.5.3)
       lodash.isplainobject: 4.0.6
       lodash.merge: 4.6.2
       lodash.uniq: 4.5.0
@@ -7603,7 +7615,7 @@ snapshots:
 
   core-util-is@1.0.3: {}
 
-  cosmiconfig-typescript-loader@4.4.0(@types/node@20.5.1)(cosmiconfig@8.3.6(typescript@5.5.3))(ts-node@10.9.2(@types/node@20.14.9)(typescript@5.5.3))(typescript@5.5.3):
+  cosmiconfig-typescript-loader@4.4.0(@types/node@20.5.1)(cosmiconfig@8.3.6(typescript@5.5.3))(ts-node@10.9.2(@types/node@20.5.1)(typescript@5.5.3))(typescript@5.5.3):
     dependencies:
       '@types/node': 20.5.1
       cosmiconfig: 8.3.6(typescript@5.5.3)
