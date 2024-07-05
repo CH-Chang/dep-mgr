@@ -1,6 +1,6 @@
 {
   "name": "@dep-mgr/downloader",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "A script to download dependency packages according to lockfile",
   "main": "dist/index.js",
   "files": [

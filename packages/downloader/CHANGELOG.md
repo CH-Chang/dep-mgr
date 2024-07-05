@@ -1,5 +1,11 @@
 # @dep-mgr/downloader
 
+## 0.0.9
+
+### Patch Changes
+
+- Solve parser method map error
+
 ## 0.0.8
 
 ### Patch Changes
