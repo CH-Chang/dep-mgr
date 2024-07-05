@@ -7,10 +7,10 @@ import path from 'path'
 import fs from 'fs'
 import urlJoin from 'url-join'
 
-const joinPackageUrl = (organization: string | undefined, name: string, version: string): string => {
+const joinPackageUrl = (registry: string, organization: string | undefined, name: string, version: string): string => {
   const url = isUndefined(organization)
-    ? urlJoin(name, '-', `${name}-${version}.tgz`)
-    : urlJoin(organization, name, '-', `${name}-${version}.tgz`)
+    ? urlJoin(registry, name, '-', `${name}-${version}.tgz`)
+    : urlJoin(registry, organization, name, '-', `${name}-${version}.tgz`)
   return url
 }
 
@@ -64,7 +64,7 @@ const downloadPackage = async (
 ): Promise<void> => {
   const { organization, name, version } = aPackage
 
-  const url = joinPackageUrl(organization, name, version)
+  const url = joinPackageUrl(registry, organization, name, version)
   const packageBuffer = await requestPackage(url)
   if (isNull(packageBuffer)) {
     failCallback?.(aPackage)
