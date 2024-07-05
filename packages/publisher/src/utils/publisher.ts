@@ -1,6 +1,7 @@
 import { type LocalPackage } from '../constants'
 import { isPackageExistsPublishConfig, isRegistryExistsPackage } from './determin'
 import { map } from 'lodash'
+import { rimrafSync } from 'rimraf'
 import pLimit from 'p-limit'
 import spawn from 'cross-spawn'
 import fs from 'fs'
@@ -30,18 +31,23 @@ const publishPackage = async (
   }
 
   const { location } = localPackage
-
   const workspaceLocation = path.resolve(workspace, path.basename(location))
-  fs.cpSync(location, workspaceLocation)
 
-  const { status } = spawn.sync('npm', ['publish', workspaceLocation], { cwd: workspace })
+  try {
+    fs.cpSync(location, workspaceLocation)
+    const { status } = spawn.sync('npm', ['publish', workspaceLocation], { cwd: workspace })
 
-  if (status !== 0) {
-    publishPackageFail?.(localPackage)
-    return
+    if (status !== 0) {
+      publishPackageFail?.(localPackage)
+      return
+    }
+
+    publishPackageSuccess?.(localPackage)
+  } finally {
+    if (fs.existsSync(workspaceLocation)) {
+      rimrafSync(workspaceLocation)
+    }
   }
-
-  publishPackageSuccess?.(localPackage)
 }
 
 export const publish = async (

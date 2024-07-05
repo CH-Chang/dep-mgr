@@ -1,10 +1,10 @@
 import { type LocalPackage } from '../constants'
+import { joinPackageUrl } from '@dep-mgr/share'
 import { isUndefined, isNull } from 'lodash'
+import { retryAsync } from 'ts-retry'
 import { PublishError, PublishErrorCode } from '../errors/publish-error'
 import { extractPackageJsonFromTarball } from './extractor'
-import { retryAsync } from 'ts-retry'
 import fetch from 'node-fetch'
-import urlJoin from 'url-join'
 import commonJson from 'comment-json'
 
 interface PartialPackageJson {
@@ -21,9 +21,7 @@ export const isRegistryExistsPackage = async (
 ): Promise<boolean> => {
   const { organization, name, version } = localPackage
 
-  const url = isUndefined(organization)
-    ? urlJoin(registry, name, '-', `${name}-${version}.tgz`)
-    : urlJoin(registry, organization, name, '-', `${name}-${version}.tgz`)
+  const url = joinPackageUrl(registry, organization, name, version)
 
   const response = await retryAsync(
     async () => await fetch(url),

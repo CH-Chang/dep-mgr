@@ -14,5 +14,13 @@
   ],
   "author": "CH-Chang",
   "license": "MIT",
-  "repository": "https://github.com/CH-Chang/dep-mgr"
+  "repository": "https://github.com/CH-Chang/dep-mgr",
+  "dependencies": {
+    "lodash": "^4.17.21",
+    "url-join": "^4.0.1"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.199",
+    "@types/url-join": "^4.0.1"
+  }
 }
