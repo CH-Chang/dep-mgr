@@ -1,5 +1,11 @@
 # @dep-mgr/downloader
 
+## 0.0.7
+
+### Patch Changes
+
+- Bump version to fix incorrect publish
+
 ## 0.0.6
 
 ### Patch Changes
