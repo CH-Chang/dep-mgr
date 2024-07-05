@@ -1,4 +1,4 @@
-import fs from 'fs'
+import fs from 'graceful-fs'
 import path from 'path'
 
 export const savePackage = (location: string, packageBuffer: Buffer): void => {

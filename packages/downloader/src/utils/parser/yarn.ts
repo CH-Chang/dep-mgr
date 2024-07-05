@@ -1,7 +1,7 @@
 import { type Package } from '@dep-mgr/share'
 import { type ParsePackagesFunction } from './share'
 import { type LockFile } from '../../constants'
-import { readFileSync } from 'fs'
+import { readFileSync } from 'graceful-fs'
 import { chain, includes, split } from 'lodash'
 import * as yarnParser from '@yarnpkg/lockfile'
 import * as packageNameParser from 'parse-package-name'

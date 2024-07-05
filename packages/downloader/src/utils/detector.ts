@@ -5,7 +5,7 @@ import {
   LockFileNameMap
 } from '../constants'
 import { DetectorError, DetectorErrorCode } from '../error/detector-error'
-import fs from 'fs'
+import fs from 'graceful-fs'
 import path from 'path'
 
 export const detectDepMgr = (): DepMgr => {
