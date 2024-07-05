@@ -8,7 +8,7 @@ describe('測試 pnpm lockfile 解析器', (): void => {
     expect.assertions(1)
 
     const lockFile = LockFile.PnpmYamlLockFile
-    const lockFilePath = path.resolve(__dirname, 'cases', 'pnpm', 'pnpm-lock.yaml')
+    const lockFilePath = path.resolve(__dirname, 'cases', 'pnpm', 'case1', 'pnpm-lock.yaml')
 
     const packages = await parsePackages(lockFile, lockFilePath)
 
