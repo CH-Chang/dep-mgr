@@ -10,10 +10,9 @@ import { parsePackages as pnpmParsePackages } from './pnpm'
 import { parsePackages as yarnParsePackages } from './yarn'
 
 const lockFileParsePackagesMap: Record<LockFile, ParsePackagesFunction> = {
-  [LockFile.NpmJsonLockFile]: npmParsePackages,
-  [LockFile.YarnJsonLockFile]: yarnParsePackages,
-  [LockFile.YarnYamlLockFile]: yarnParsePackages,
-  [LockFile.PnpmYamlLockFile]: pnpmParsePackages
+  [LockFile.NpmLockFile]: npmParsePackages,
+  [LockFile.YarnLockFile]: yarnParsePackages,
+  [LockFile.PnpmLockFile]: pnpmParsePackages
 }
 
 export const parsePackages: RootParsePackagesFunction = async (
