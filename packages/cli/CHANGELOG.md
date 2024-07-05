@@ -1,5 +1,14 @@
 # @dep-mgr/cli
 
+## 0.0.8
+
+### Patch Changes
+
+- Updated dependencies
+  - @dep-mgr/downloader@0.0.8
+  - @dep-mgr/publisher@0.0.8
+  - @dep-mgr/share@0.0.8
+
 ## 0.0.7
 
 ### Patch Changes

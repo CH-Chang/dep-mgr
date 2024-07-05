@@ -1,5 +1,11 @@
 # @dep-mgr/share
 
+## 0.0.8
+
+### Patch Changes
+
+- Use graceful-fs and adjust dependency relationship
+
 ## 0.0.2
 
 ### Patch Changes

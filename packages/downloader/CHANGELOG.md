@@ -1,5 +1,13 @@
 # @dep-mgr/downloader
 
+## 0.0.8
+
+### Patch Changes
+
+- Use graceful-fs and adjust dependency relationship
+- Updated dependencies
+  - @dep-mgr/share@0.0.8
+
 ## 0.0.7
 
 ### Patch Changes
