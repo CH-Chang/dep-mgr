@@ -1,5 +1,11 @@
 # @dep-mgr/publisher
 
+## 0.0.10
+
+### Patch Changes
+
+- Fix package contains not only one package.json issue
+
 ## 0.0.8
 
 ### Patch Changes
