@@ -1,7 +1,7 @@
 import tar from 'tar-stream'
 import fs from 'graceful-fs'
 import { Gunzip } from 'minizlib'
-import { endsWith, isNull } from 'lodash'
+import { endsWith, isEmpty, size, split } from 'lodash'
 
 export const extractPackageJsonFromTarball = async (
   location: string
@@ -9,20 +9,23 @@ export const extractPackageJsonFromTarball = async (
   return await new Promise((resolve, reject) => {
     const extract = tar.extract()
 
-    let data: string | null = null
+    let data: string = ''
+    let level: number = Number.MAX_SAFE_INTEGER
     extract.on('entry', (headers, stream, next) => {
       if (endsWith(headers.name, 'package.json')) {
-        stream.on('data', (chunk) => {
-          if (isNull(data)) {
-            data = ''
-          }
+        const entrySplit = split(headers.name, '/')
+        const entryLevel = size(entrySplit)
 
-          data += chunk
-        })
+        if (entryLevel < level) {
+          stream.on('data', (chunk) => {
+            data += chunk
+          })
 
-        stream.on('end', () => {
-          next()
-        })
+          stream.on('end', () => {
+            level = entryLevel
+            next()
+          })
+        }
       }
 
       stream.resume()
@@ -30,11 +33,13 @@ export const extractPackageJsonFromTarball = async (
     })
 
     extract.on('finish', () => {
+      if (isEmpty(data)) {
+        resolve(null)
+      }
+
       resolve(data)
     })
 
-    fs.createReadStream(location)
-      .pipe(new Gunzip({}))
-      .pipe(extract)
+    fs.createReadStream(location).pipe(new Gunzip({})).pipe(extract)
   })
 }

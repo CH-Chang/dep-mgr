@@ -24,7 +24,7 @@
     "test": {
       "dependsOn": ["^test"],
       "inputs": [
-        "{projectRoot}/src/__test__/**/*",
+        "{projectRoot}/src/**/*",
         "{projectRoot}/rollup.config.ts",
         "{projectRoot}/tsconfig.build.json",
         "{projectRoot}/tsconfig.json",
