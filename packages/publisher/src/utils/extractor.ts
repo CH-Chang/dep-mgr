@@ -12,26 +12,27 @@ export const extractPackageJsonFromTarball = async (
     let data: string = ''
     let level: number = Number.MAX_SAFE_INTEGER
     extract.on('entry', (headers, stream, next) => {
-      if (endsWith(headers.name, 'package.json')) {
-        const entrySplit = split(headers.name, '/')
-        const entryLevel = size(entrySplit)
+      const entrySplit = split(headers.name, '/')
+      const entryLevel = size(entrySplit)
 
-        if (entryLevel < level) {
-          data = ''
+      if (endsWith(headers.name, 'package.json') && entryLevel < level) {
+        data = ''
 
-          stream.on('data', (chunk) => {
-            data += chunk
-          })
+        stream.on('data', (chunk) => {
+          data += chunk
+        })
 
-          stream.on('end', () => {
-            level = entryLevel
-            next()
-          })
-        }
+        stream.on('end', () => {
+          level = entryLevel
+          next()
+        })
+      } else {
+        stream.on('end', () => {
+          next()
+        })
       }
 
       stream.resume()
-      next()
     })
 
     extract.on('finish', () => {
