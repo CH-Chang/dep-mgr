@@ -1,5 +1,11 @@
 # @dep-mgr/publisher
 
+## 0.0.11
+
+### Patch Changes
+
+- Solve clear data before new care entry entry found bugs
+
 ## 0.0.10
 
 ### Patch Changes
