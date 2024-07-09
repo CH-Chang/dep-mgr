@@ -17,6 +17,8 @@ export const extractPackageJsonFromTarball = async (
         const entryLevel = size(entrySplit)
 
         if (entryLevel < level) {
+          data = ''
+
           stream.on('data', (chunk) => {
             data += chunk
           })
