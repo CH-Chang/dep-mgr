@@ -222,6 +222,9 @@ importers:
       '@dep-mgr/share':
         specifier: workspace:^
         version: link:../share
+      '@npmcli/name-from-folder':
+        specifier: ^2.0.0
+        version: 2.0.0
       '@pnpm/dependency-path':
         specifier: ^5.1.1
         version: 5.1.1
@@ -1270,6 +1273,10 @@ packages:
   '@nodelib/fs.walk@1.2.8':
     resolution: {integrity: sha512-oGB+UxlgWcgQkgwo8GcEGwemoTFt3FIO9ababBmaGwXIoBKZ+GTy0pP185beGg7Llih/NSHSV2XAs1lnznocSg==}
     engines: {node: '>= 8'}
+
+  '@npmcli/name-from-folder@2.0.0':
+    resolution: {integrity: sha512-pwK+BfEBZJbKdNYpHHRTNBwBoqrN/iIMO0AiGvYsp3Hoaq0WbgGSWQR6SCldZovoDpY3yje5lkFUe6gsDgJ2vg==}
+    engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0}
 
   '@nrwl/tao@17.3.2':
     resolution: {integrity: sha512-5uvpSmij0J9tteFV/0M/024K+H/o3XAlqtSdU8j03Auj1IleclSLF2yCTuIo7pYXhG3cgx1+nR+3nMs1QVAdUA==}
@@ -6540,6 +6547,8 @@ snapshots:
     dependencies:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.17.1
+
+  '@npmcli/name-from-folder@2.0.0': {}
 
   '@nrwl/tao@17.3.2':
     dependencies:

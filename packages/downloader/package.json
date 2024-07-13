@@ -19,6 +19,7 @@
   "license": "MIT",
   "dependencies": {
     "@dep-mgr/share": "workspace:^",
+    "@npmcli/name-from-folder": "^2.0.0",
     "@pnpm/dependency-path": "^5.1.1",
     "@pnpm/lockfile-file": "^9.1.1",
     "@yarnpkg/lockfile": "^1.1.0",

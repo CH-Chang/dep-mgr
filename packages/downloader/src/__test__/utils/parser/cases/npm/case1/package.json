@@ -1,0 +1,13 @@
+{
+  "name": "npm-parser-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [],
+  "author": "CH-Chang",
+  "license": "MIT",
+  "dependencies": {
+    "@types/node": "^20.14.9"
+  }
+}
