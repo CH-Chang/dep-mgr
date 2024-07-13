@@ -1,6 +1,6 @@
 {
   "name": "@dep-mgr/publisher",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "description": "A script to publish all package under specific directory to specific registry",
   "main": "dist/index.js",
   "files": [

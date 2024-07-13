@@ -1,5 +1,12 @@
 # @dep-mgr/cli
 
+## 0.0.12
+
+### Patch Changes
+
+- Updated dependencies
+  - @dep-mgr/publisher@0.0.12
+
 ## 0.0.11
 
 ### Patch Changes
