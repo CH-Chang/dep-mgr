@@ -4,7 +4,7 @@ import { type ParsePackagesFunction } from './share'
 import { readFileSync } from 'graceful-fs'
 import { ParserError, ParserErrorCode } from '../../error/parser-error'
 import nameFromFolder from '@npmcli/name-from-folder'
-import { chain, split, startsWith } from 'lodash'
+import { chain, split, startsWith, isEmpty } from 'lodash'
 
 interface PartialNpmLockFile {
   lockfileVersion: number
@@ -23,6 +23,7 @@ interface PartialNpmLockFileV2 {
 const parseNpmLockFileV2 = (parsed: PartialNpmLockFileV2): Package[] => {
   return chain(parsed.packages)
     .keys()
+    .filter((key) => !isEmpty(key))
     .map((key) => {
       const fullname = nameFromFolder(key)
       const organization = startsWith(fullname, '@')
