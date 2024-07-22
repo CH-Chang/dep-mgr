@@ -8,7 +8,7 @@ async function main (): Promise<void> {
   commander.program
     .option(
       '-r, --registry <string>',
-      'Specific download packages from which registry'
+      'Specific publish packages to which registry'
     )
     .option('-o, --pkgDir <string>', 'Specific publish packages directory')
 
