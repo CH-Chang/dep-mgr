@@ -13,7 +13,7 @@
 
 "dep-mgr 依賴包管理器" 提供下列兩項功能
 
-- 根據 pnpm/yarn lockfile 至指定 registry 下載相關依賴套件
+- 根據 npm/pnpm/yarn lockfile 至指定 registry 下載相關依賴套件
 - 將指定目錄內的所有依賴包推送至指定 registry
 
 透過上述兩項功能，可將專案所需要的所有依賴包下載至本地，並重新推送至指定的私人 registry，以讓僅能存取特定 registry 的包版機器能夠正常下載專案所需的依賴套件。
@@ -52,7 +52,7 @@ npm i -g @dep-mgr/cli
   # Usage: dep-mgr-publish [options]
   #
   # Options:
-  #   -r, --registry <string>  Specific download packages from which registry
+  #   -r, --registry <string>  Specific publish packages to which registry
   #   -o, --pkgDir <string>    Specific publish packages directory
   #   -h, --help               display help for command
   ```

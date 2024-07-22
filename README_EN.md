@@ -13,7 +13,7 @@ English | [繁體中文](README.md) | [简体中文](README_ZH_CN.md)
 
 "dep-mgr - dependency package manager" provides the following two features:
 
-- Download dependency packages according to pnpm/yarn lockfile from the specified registry.
+- Download dependency packages according to npm/pnpm/yarn lockfile from the specified registry.
 - Push all dependency packages from a specified directory to a specified registry.
 
 The above two features allow you to download all the dependency packages needed for your project to local and push them back to a specified private registry, so that package machines that only have access to a specific registry can download the dependencies needed for your project.
@@ -52,7 +52,7 @@ npm i -g @dep-mgr/cli
   # Usage: dep-mgr-publish [options]
   #
   # Options:
-  #   -r, --registry <string>  Specific download packages from which registry
+  #   -r, --registry <string>  Specific publish packages to which registry
   #   -o, --pkgDir <string>    Specific publish packages directory
   #   -h, --help               display help for command
   ```
