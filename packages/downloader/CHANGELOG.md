@@ -1,5 +1,11 @@
 # @dep-mgr/downloader
 
+## 0.0.13
+
+### Patch Changes
+
+- Support for npm package manager
+
 ## 0.0.9
 
 ### Patch Changes
