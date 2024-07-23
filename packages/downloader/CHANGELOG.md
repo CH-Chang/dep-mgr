@@ -1,5 +1,11 @@
 # @dep-mgr/downloader
 
+## 0.0.15
+
+### Patch Changes
+
+- Solve incorrect return type processing
+
 ## 0.0.14
 
 ### Patch Changes
