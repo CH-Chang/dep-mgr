@@ -23,10 +23,10 @@ export const isRegistryExistsPackage = async (
 
   const url = joinPackageUrl(registry, organization, name, version)
 
-  const response = await retryAsync(
-    async () => await fetch(url),
-    { delay: 100, maxTry: 3 }
-  )
+  const response = await retryAsync(async () => await fetch(url), {
+    delay: 100,
+    maxTry: 3
+  })
 
   return response.status === 200
 }
@@ -47,7 +47,11 @@ export const isPackageExistsPublishConfig = async (
   const { publishConfig } = packageJson
   if (!isUndefined(publishConfig)) {
     const { registry: packagePublishConfigRegistry } = publishConfig
-    if (registry !== packagePublishConfigRegistry) {
+
+    if (
+      !isUndefined(packagePublishConfigRegistry) &&
+      registry !== packagePublishConfigRegistry
+    ) {
       return true
     }
   }
