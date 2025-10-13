@@ -1,6 +1,16 @@
 import { type LocalPackage } from '../constants'
 import { ParserError, ParserErrorCode } from '../errors/parser-error'
-import { flatMap, join, last, map, size, slice, split } from 'lodash'
+import {
+  flatMap,
+  join,
+  last,
+  map,
+  size,
+  slice,
+  split,
+  toLower,
+  compact
+} from 'lodash'
 import path from 'path'
 import fs from 'graceful-fs'
 
@@ -39,6 +49,10 @@ export const parsePkgDir = (pkgDir: string): LocalPackage[] => {
       const innerFiles = fs.readdirSync(innerPkgPath)
 
       return map(innerFiles, (aIf) => {
+        if (toLower(path.extname(aIf)) !== '.tgz') {
+          return undefined
+        }
+
         const { name, version } = parsePkgFilename(aIf)
         const location = path.resolve(innerPkgPath, aIf)
 
@@ -51,6 +65,10 @@ export const parsePkgDir = (pkgDir: string): LocalPackage[] => {
       })
     }
 
+    if (toLower(path.extname(f)) !== '.tgz') {
+      return undefined
+    }
+
     const { name, version } = parsePkgFilename(f)
     const location = path.resolve(pkgPath, f)
 
@@ -61,5 +79,5 @@ export const parsePkgDir = (pkgDir: string): LocalPackage[] => {
     }
   })
 
-  return localPackages
+  return compact(localPackages)
 }
