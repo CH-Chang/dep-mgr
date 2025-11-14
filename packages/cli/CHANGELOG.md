@@ -1,5 +1,13 @@
 # @dep-mgr/cli
 
+## 0.0.16
+
+### Patch Changes
+
+- ae17d64: Solve publish config determine issue
+- Updated dependencies [ae17d64]
+  - @dep-mgr/publisher@0.0.16
+
 ## 0.0.15
 
 ### Patch Changes

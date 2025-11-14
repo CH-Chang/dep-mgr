@@ -1,5 +1,11 @@
 # @dep-mgr/publisher
 
+## 0.0.16
+
+### Patch Changes
+
+- ae17d64: Solve publish config determine issue
+
 ## 0.0.12
 
 ### Patch Changes
