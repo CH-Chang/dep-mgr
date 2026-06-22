@@ -1,5 +1,11 @@
 # @dep-mgr/downloader
 
+## 0.0.17
+
+### Patch Changes
+
+- 5d335df: Solve pnpm lockfile 5 issue
+
 ## 0.0.15
 
 ### Patch Changes
